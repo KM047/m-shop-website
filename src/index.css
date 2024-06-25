@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --color-primary: #3490dc;
+    --color-secondary: #f51e02;
+    --font-main: "Monospace";
+}
+
+body {
+    /* font-family: var(--font-main); */
+}

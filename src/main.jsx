@@ -10,7 +10,7 @@ import { store, persistor } from "./redux/store.js";
 import { PersistGate } from "redux-persist/integration/react";
 import AboutPage from "./pages/AboutPage.jsx";
 
-import { HomePage, CartPage, NotFoundPage, ProductPage } from "./pages";
+import { HomePage, CartPage, NotFoundPage, ProductPage } from "./pages/index.js";
 
 const router = createBrowserRouter([
     {

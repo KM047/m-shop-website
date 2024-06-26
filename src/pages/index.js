@@ -1,6 +1,6 @@
-import HomePage from "./HomePage";
-import CartPage from "./CartPage";
-import NotFoundPage from "./NotFoundPage";
-import ProductPage from "./ProductPage";
+import HomePage from "./HomePage.jsx";
+import CartPage from "./CartPage.jsx";
+import NotFoundPage from "./NotFoundPage.jsx";
+import ProductPage from "./ProductPage.jsx";
 
 export { HomePage, CartPage, NotFoundPage, ProductPage };

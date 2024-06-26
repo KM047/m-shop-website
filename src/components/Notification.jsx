@@ -67,9 +67,9 @@ const icons = {
     ),
 };
 
-function Notification({ type = "info", message, onClose = () => {}, color }) {
+function Notification({ type = "info", message, onClose = () => {} }) {
     return (
-        <div className=" w-80 max-w-md md:max-w-xl border bg-green-200 border-gray-400 bg-transparent p-2 md:p-4 rounded-lg flex flex-col items-start justify-between mx-auto">
+        <div className=" notification-pop w-80 max-w-md md:max-w-xl border bg-green-500 border-gray-400 bg-transparent p-2 md:p-4 rounded-lg flex flex-col items-start justify-between mx-auto">
             <div className="flex items-center justify-between w-full mb-2">
                 <div className="flex items-start justify-center">
                     {icons[type]}
@@ -77,7 +77,7 @@ function Notification({ type = "info", message, onClose = () => {}, color }) {
                         {message}
                     </span>
                 </div>
-                <button className="text-gray-700-700" onClick={onClose}>
+                <button className="text-gray-700" onClick={onClose}>
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"

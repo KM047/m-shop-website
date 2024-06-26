@@ -115,7 +115,7 @@ function FeatureSection() {
                 </div>
             </div>
 
-            <div className="mx-auto my-8 max-w-7xl px-2 lg:px-8">
+            {/* <div className="mx-auto my-8 max-w-7xl px-2 lg:px-8">
                 <div className="grid grid-cols-1 gap-y-2 text-center sm:grid-cols-2 sm:gap-10 lg:grid-cols-4">
                     {procuts.map((p) => (
                         <>
@@ -125,7 +125,7 @@ function FeatureSection() {
                         </>
                     ))}
                 </div>
-            </div>
+            </div> */}
         </>
     );
 }

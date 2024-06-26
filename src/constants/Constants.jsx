@@ -50,4 +50,10 @@ export const products = [
     },
 ];
 
-export const categories = ["Cakes", "Main Course", "Desserts", "Snacks"];
+export const categories = [
+    { id: 0, name: "All" },
+    { id: 1, name: "Cakes" },
+    { id: 2, name: "Main Course" },
+    { id: 3, name: "Desserts" },
+    { id: 4, name: "Snacks" },
+];

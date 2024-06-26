@@ -4,6 +4,7 @@ import { Dialog, DialogPanel } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import logo from "../../assets/react.svg";
 import { useSelector } from "react-redux";
+import { Link, NavLink } from "react-router-dom";
 
 function Header() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -19,7 +20,7 @@ function Header() {
 
     return (
         <>
-            <header className="bg-white bg-opacity-30 backdrop-blur-md backdrop-filter top-0 left-0 w-full z-50 sticky">
+            <header className="bg-white bg-opacity-30 border-2 border-gray-200 backdrop-blur-md backdrop-filter top-0 left-0 w-full z-50 sticky rounded-2xl shadow-sm">
                 <nav
                     className="flex items-center justify-between p-6 lg:px-8"
                     aria-label="Global"
@@ -42,13 +43,17 @@ function Header() {
                     </div>
                     <div className="hidden lg:flex lg:gap-x-12">
                         {navigation.map((item) => (
-                            <a
+                            <NavLink
                                 key={item.name}
-                                href={item.href}
-                                className="text-sm font-semibold leading-6 text-gray-900"
+                                to={item.href}
+                                className={({ isActive }) =>
+                                    `block px-6 py-2 duration-200 text-[#000000] hover:text-[#3d3d3d] transition-all ease-linear hover:scale-125 ${
+                                        isActive && "text-[#1acbeb]"
+                                    }`
+                                }
                             >
                                 {item.name}
-                            </a>
+                            </NavLink>
                         ))}
                     </div>
                     <div className="hidden lg:flex lg:flex-1 lg:justify-end">

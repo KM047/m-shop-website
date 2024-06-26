@@ -1,38 +1,50 @@
 import React, { useState } from "react";
 
-function ProductCard(id) {
+function ProductCard(product, key, handleAddToCart = () => {}) {
     return (
         <>
-            {/* <div className="mx-auto my-32 max-w-7xl px-2 lg:px-8">
-                <div className="grid grid-cols-1 gap-y-8 text-center sm:grid-cols-2 sm:gap-12 lg:grid-cols-4"> */}
-            {/* product card */}
-            <div className="shadow-sm">
-                <div className="w-72 p-4 bg-white rounded-lg shadow-md transform hover:scale-105 transition-transform duration-300 ease-in-out">
-                    <img
-                        className="w-full h-40 object-cover rounded-t-lg"
-                        alt="Card Image"
-                        src="https://via.placeholder.com/150"
-                    />
-                    <img src="" alt="" />
-                    <div className="p-4">
-                        <h2 className="text-xl  font-semibold">
-                            Beautiful Card
-                        </h2>
-                        <p className="text-gray-600">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing
-                            elit. Nullam quis ante sit amet tellus ornare
-                            tincidunt.
-                        </p>
-                        <div className="flex justify-between items-center mt-4">
-                            <button className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-400">
-                                Learn More {id.p}
-                            </button>
+            <div key={product.id} id={key} className="group relative">
+                <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
+                    {product.id % 2 == 0 ? (
+                        <div className="absolute right-2 top-2">
+                            <span className="inline-flex items-center rounded-md bg-yellow-50 px-2 py-1 text-xs font-medium text-yellow-800 ring-1 ring-inset ring-yellow-600/20">
+                                Our Best
+                            </span>
                         </div>
-                    </div>
+                    ) : null}
+                    <img
+                        src={product.imageUrl}
+                        alt={product.imageAlt}
+                        className="h-full w-full object-cover object-center lg:h-full lg:w-full"
+                    />
                 </div>
+                <div className="mt-4 flex justify-between">
+                    <div>
+                        <h3 className="text-sm text-gray-700">
+                            <a href={`/ product/${product.id}`}>
+                                <span
+                                    aria-hidden="true"
+                                    className="absolute inset-8"
+                                />
+                                {product.name}
+                            </a>
+                        </h3>
+                        <p className="mt-1 text-sm text-gray-500">
+                            {product.category}
+                        </p>
+                    </div>
+                    <p className="text-sm font-semibold text-gray-900">
+                        ₹ {product.price}
+                    </p>
+                </div>
+                <button
+                    onClick={() => handleAddToCart(product)}
+                    type="button"
+                    className="mt-4 w-full rounded-md bg-black px-2 py-1.5 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                >
+                    Add to Cart
+                </button>
             </div>
-            {/* </div>
-            </div> */}
         </>
     );
 }

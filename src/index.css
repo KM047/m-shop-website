@@ -8,6 +8,10 @@
     --font-main: "Monospace";
 }
 
+.notification-pop {
+    background-color: rgb(83, 244, 83);
+}
+
 body {
     /* font-family: var(--font-main); */
 }

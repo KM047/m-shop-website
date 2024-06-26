@@ -14,7 +14,10 @@ function HomePage() {
                 {/* <FeatureSection /> */}
                 {/* Category section */}
                 <CategorySection />
-                <CategoryCard />
+                <div className="flex flex-wrap justify-center">
+                    <CategoryCard />
+                    <CategoryCard />
+                </div>
             </div>
         </>
     );

@@ -94,21 +94,21 @@ function CartItem() {
                                                             </div>
                                                             <div className="mt-1 flex items-end">
                                                                 <p className="text-xs font-medium text-gray-500 line-through">
+                                                                    ₹{" "}
                                                                     {
                                                                         product.price
                                                                     }
                                                                 </p>
                                                                 <p className="text-sm font-medium text-gray-900">
                                                                     &nbsp;&nbsp;
+                                                                    ₹{" "}
                                                                     {
                                                                         product.price
                                                                     }
                                                                 </p>
                                                                 &nbsp;&nbsp;
                                                                 <p className="text-sm font-medium text-green-500">
-                                                                    {
-                                                                        product.price
-                                                                    }
+                                                                    7% off
                                                                 </p>
                                                             </div>
                                                         </div>
@@ -255,12 +255,6 @@ function CartItem() {
                                         Back to shop
                                     </button>
                                 </Link>
-                                {/* <button
-                                    type="button"
-                                    className="rounded-md border border-black px-3 py-2 text-sm font-semibold text-black shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
-                                >
-                                    Checkout
-                                </button> */}
                             </div>
                         </div>
                     </section>

@@ -6,16 +6,33 @@ import { FaRegStar, FaStar, FaStarHalfAlt } from "react-icons/fa";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 
-// Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 
-// import required modules
 import { Pagination, Navigation } from "swiper/modules";
+import useNotification from "../utils/UseNotification";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../redux/reducers/CartSlice";
 
 export function ProductInfo() {
     const { productId } = useParams();
+
+    const { NotificationComponent, triggerNotification } = useNotification("");
+
+    const dispatch = useDispatch();
+
+    const handleAddToCart = (product) => {
+        // console.log("add to cart", product);
+        dispatch(addToCart({ id: product.id, product }));
+
+        triggerNotification({
+            type: "success",
+            message: "Product added successfully!",
+            duration: 2500,
+            animation: "pop",
+        });
+    };
 
     const rating = 3;
 
@@ -23,8 +40,9 @@ export function ProductInfo() {
 
     return (
         <>
+            {NotificationComponent}
             <section className="overflow-hidden">
-                <div className="mx-auto max-w-5xl px-5 py-24">
+                <div className="mx-auto max-w-5xl px-5 py-8">
                     <div className="mx-auto flex flex-wrap items-center lg:w-4/5">
                         <div className="overflow-hidden h-auto w-full rounded bg-black object-cover object-center lg:h-auto lg:w-1/2 ">
                             <Swiper
@@ -52,11 +70,6 @@ export function ProductInfo() {
                                 ))}
                             </Swiper>
                         </div>
-                        {/* <img
-                            alt="Nike Air Max 21A"
-                            className="h-64 w-full rounded object-cover lg:h-96 lg:w-1/2"
-                            src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8c2hvZXN8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60"
-                        /> */}
                         <div className="mt-6 w-full lg:mt-0 lg:w-1/2 lg:pl-10">
                             <h2 className="text-sm font-semibold tracking-widest text-gray-500">
                                 <span className="font-bold">Category</span> -{" "}
@@ -135,6 +148,7 @@ export function ProductInfo() {
                                     ₹47,199
                                 </span>
                                 <button
+                                    onClick={() => handleAddToCart(product)}
                                     type="button"
                                     className="rounded-md bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
                                 >

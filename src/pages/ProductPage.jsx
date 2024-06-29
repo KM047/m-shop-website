@@ -9,9 +9,6 @@ import {
     ListboxButton,
     ListboxOption,
     ListboxOptions,
-    MenuButton,
-    MenuItem,
-    MenuItems,
 } from "@headlessui/react";
 import {
     CheckIcon,
@@ -20,7 +17,7 @@ import {
 } from "@heroicons/react/20/solid";
 
 import { useState } from "react";
-import { ChevronDownIcon, Menu } from "lucide-react";
+
 import { Link } from "react-router-dom";
 
 function classNames(...classes) {
@@ -331,12 +328,6 @@ function ProductPage() {
                                                 setSearchQuery(e.target.value)
                                             }
                                         />
-                                        {/* <button
-                                            type="reset"
-                                            className="absolute right-3 -translate-y-1/2 top-1/2  "
-                                        >
-                                            X
-                                        </button> */}
                                     </div>
                                 </div>
                             </div>
@@ -346,12 +337,12 @@ function ProductPage() {
 
                 <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
                     {filteredProducts.map((product, key) => (
-                        <Link to={`/products/p/${product.id}`} key={key}>
-                            <div
-                                key={key}
-                                id={product.id}
-                                className="group relative"
-                            >
+                        <div
+                            key={key}
+                            id={product.id}
+                            className="group relative"
+                        >
+                            <Link to={`/products/p/${product.id}`} key={key}>
                                 <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
                                     {product.id % 2 == 0 ? (
                                         <div className="absolute right-2 top-2">
@@ -385,15 +376,16 @@ function ProductPage() {
                                         ₹ {product.price}
                                     </p>
                                 </div>
-                                <button
-                                    onClick={() => handleAddToCart(product)}
-                                    type="button"
-                                    className="mt-4 w-full rounded-md bg-black px-2 py-1.5 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
-                                >
-                                    Add to Cart
-                                </button>
-                            </div>
-                        </Link>
+                            </Link>
+
+                            <button
+                                onClick={() => handleAddToCart(product)}
+                                type="button"
+                                className="mt-4 w-full rounded-md bg-black px-2 py-1.5 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                            >
+                                Add to Cart
+                            </button>
+                        </div>
                     ))}
                 </div>
             </div>

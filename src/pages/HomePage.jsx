@@ -6,6 +6,7 @@ import CategorySection from "../components/CategorySection";
 
 import CategoryCard from "../components/CategoryCard";
 
+
 function HomePage() {
     return (
         <>
@@ -18,6 +19,7 @@ function HomePage() {
                     <CategoryCard />
                     <CategoryCard />
                 </div>
+              
             </div>
         </>
     );

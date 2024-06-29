@@ -4,7 +4,7 @@ function ProductCard(product, key, handleAddToCart = () => {}) {
     return (
         <>
             <div key={product.id} id={key} className="group relative">
-                <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
+                <div className=" aspect-auto  w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
                     {product.id % 2 == 0 ? (
                         <div className="absolute right-2 top-2">
                             <span className="inline-flex items-center rounded-md bg-yellow-50 px-2 py-1 text-xs font-medium text-yellow-800 ring-1 ring-inset ring-yellow-600/20">

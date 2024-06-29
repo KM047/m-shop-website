@@ -5,51 +5,12 @@ import {
     resetCart,
     updateQuantity,
 } from "../redux/reducers/CartSlice";
+import { Link } from "react-router-dom";
 
 function CartItem() {
-    const products1 = [
-        {
-            id: 1,
-            name: "Nike Air Force 1 07 LV8",
-            href: "#",
-            price: "₹47,199",
-            originalPrice: "₹48,900",
-            discount: "5% Off",
-            color: "Orange",
-            size: "8 UK",
-            imageSrc:
-                "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/54a510de-a406-41b2-8d62-7f8c587c9a7e/air-force-1-07-lv8-shoes-9KwrSk.png",
-        },
-        {
-            id: 2,
-            name: "Nike Blazer Low 77 SE",
-            href: "#",
-            price: "₹1,549",
-            originalPrice: "₹2,499",
-            discount: "38% off",
-            color: "White",
-            leadTime: "3-4 weeks",
-            size: "8 UK",
-            imageSrc:
-                "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/e48d6035-bd8a-4747-9fa1-04ea596bb074/blazer-low-77-se-shoes-0w2HHV.png",
-        },
-        {
-            id: 3,
-            name: "Nike Air Max 90",
-            href: "#",
-            price: "₹2219 ",
-            originalPrice: "₹999",
-            discount: "78% off",
-            color: "Black",
-            imageSrc:
-                "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/fd17b420-b388-4c8a-aaaa-e0a98ddf175f/dunk-high-retro-shoe-DdRmMZ.png",
-        },
-    ];
     const { cartItems, totalQuantity, totalPrice } = useSelector(
         (state) => state.cart
     );
-
-    const [count, setCount] = useState(1);
 
     const dispatch = useDispatch();
 
@@ -65,7 +26,7 @@ function CartItem() {
     //     dispatch(resetCart());
     // };
 
-    console.log(cartItems);
+    // console.log(cartItems);
 
     return (
         <div className="mx-auto max-w-7xl px-2 lg:px-0">
@@ -73,7 +34,7 @@ function CartItem() {
                 <h1 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
                     Shopping Cart
                 </h1>
-                <form className="mt-12 lg:grid lg:grid-cols-12 lg:items-start lg:gap-x-12 xl:gap-x-16">
+                <div className="mt-12 lg:grid lg:grid-cols-12 lg:items-start lg:gap-x-12 xl:gap-x-16">
                     <section
                         aria-labelledby="cart-heading"
                         className="rounded-lg bg-white lg:col-span-8"
@@ -94,11 +55,11 @@ function CartItem() {
                                             className=""
                                         >
                                             <li className="flex py-6 sm:py-6 ">
-                                                <div className="flex-shrink-0">
+                                                <div className="flex-shrink rounded-md overflow-hidden ">
                                                     <img
                                                         src={product.imageUrl}
                                                         alt={product.name}
-                                                        className="sm:h-38 sm:w-38 h-24 w-24 rounded-md object-contain object-center"
+                                                        className="sm:h-38 sm:w-38 h-24 w-24 rounded-xl object-cover object-center "
                                                     />
                                                 </div>
 
@@ -107,16 +68,14 @@ function CartItem() {
                                                         <div>
                                                             <div className="flex justify-between">
                                                                 <h3 className="text-sm">
-                                                                    <a
-                                                                        href={
-                                                                            product.id
-                                                                        }
-                                                                        className="font-semibold text-black"
+                                                                    <Link
+                                                                        to={`/products/p/${product.id}`}
+                                                                        className="font-bold text-black text-base"
                                                                     >
                                                                         {
                                                                             product.name
                                                                         }
-                                                                    </a>
+                                                                    </Link>
                                                                 </h3>
                                                             </div>
                                                             <div className="mt-1 flex text-sm">
@@ -213,7 +172,7 @@ function CartItem() {
                                                             viewBox="0 0 24 24"
                                                             strokeWidth={1.5}
                                                             stroke="currentColor"
-                                                            className="size-6"
+                                                            className="size-6 text-red-500"
                                                         >
                                                             <path
                                                                 strokeLinecap="round"
@@ -288,22 +247,24 @@ function CartItem() {
                                 You will save ₹ 3,431 on this order
                             </div>
                             <div className="flex justify-center space-x-4">
-                                <button
-                                    type="button"
-                                    className="rounded-md border border-black px-3 py-2 text-sm font-semibold text-black shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
-                                >
-                                    Back to shop
-                                </button>
-                                <button
+                                <Link to={"/products"}>
+                                    <button
+                                        type="button"
+                                        className="rounded-md border border-black px-3 py-2 text-sm font-semibold text-black shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                                    >
+                                        Back to shop
+                                    </button>
+                                </Link>
+                                {/* <button
                                     type="button"
                                     className="rounded-md border border-black px-3 py-2 text-sm font-semibold text-black shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
                                 >
                                     Checkout
-                                </button>
+                                </button> */}
                             </div>
                         </div>
                     </section>
-                </form>
+                </div>
             </div>
         </div>
     );

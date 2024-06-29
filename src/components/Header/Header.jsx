@@ -1,10 +1,22 @@
 import React from "react";
 import { useState } from "react";
-import { Dialog, DialogPanel } from "@headlessui/react";
+import {
+    Dialog,
+    DialogPanel,
+    Disclosure,
+    DisclosureButton,
+    DisclosurePanel,
+    Popover,
+    PopoverButton,
+    PopoverPanel,
+} from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import logo from "../../assets/react.svg";
 import { useSelector } from "react-redux";
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { ChevronDownIcon, MinusIcon, PlusIcon } from "lucide-react";
+
+import { NavItems } from "../../constants/Constants";
 
 function Header() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -16,6 +28,20 @@ function Header() {
         { name: "About", href: "/about" },
     ];
 
+    const [openPopover, setOpenPopover] = useState(null);
+
+    const handleMouseEnter = (id) => {
+        setOpenPopover(id);
+    };
+
+    const handleMouseLeave = () => {
+        setOpenPopover(null);
+    };
+
+    // const handleClick = (id) => {
+    //     setOpenPopover((prev) => (prev === id ? null : id));
+    // };
+
     const { totalQuantity } = useSelector((state) => state.cart);
 
     return (
@@ -26,10 +52,10 @@ function Header() {
                     aria-label="Global"
                 >
                     <div className="flex lg:flex-1">
-                        <a href="/" className="-m-1.5 p-1.5">
+                        <Link href="/" className="-m-1.5 p-1.5">
                             <span className="sr-only">Your Company</span>
                             <img className="h-8 w-auto" src={logo} alt="Logo" />
-                        </a>
+                        </Link>
                     </div>
                     <div className="flex lg:hidden">
                         <button
@@ -41,24 +67,69 @@ function Header() {
                             <Bars3Icon className="h-6 w-6" aria-hidden="true" />
                         </button>
                     </div>
-                    <div className="hidden lg:flex lg:gap-x-12">
-                        {navigation.map((item) => (
-                            <NavLink
-                                key={item.name}
-                                to={item.href}
-                                className={({ isActive }) =>
-                                    `block px-6 py-2 duration-200 text-[#000000] hover:text-[#3d3d3d] transition-all ease-linear hover:scale-125 ${
-                                        isActive && "text-[#1acbeb]"
-                                    }`
-                                }
-                            >
-                                {item.name}
-                            </NavLink>
+                    <div className="hidden lg:flex lg:gap-x-8">
+                        {NavItems.map((item, key) => (
+                            <>
+                                <Popover
+                                    className="relative px-6 py-2"
+                                    key={key}
+                                >
+                                    <PopoverButton
+                                        className="inline-flex items-center gap-x-1 px-2 py-1 text-sm font-semibold leading-6 text-gray-900"
+                                        onMouseEnter={() =>
+                                            handleMouseEnter(item.id)
+                                        }
+                                    >
+                                        <span>{item.category}</span>
+                                        <ChevronDownIcon
+                                            className="h-5 w-5"
+                                            aria-hidden="true"
+                                        />
+                                    </PopoverButton>
+
+                                    {openPopover === item.id && (
+                                        <PopoverPanel
+                                            transition
+                                            className="absolute left-1/2 z-10 mt-5 flex w-screen max-w-max -translate-x-1/2 px-4 transition data-[closed]:translate-y-1 data-[closed]:opacity-0 data-[enter]:duration-200 data-[leave]:duration-150 data-[enter]:ease-out data-[leave]:ease-in"
+                                            onMouseLeave={handleMouseLeave}
+                                        >
+                                            <div className="w-screen max-w-sm flex-auto overflow-hidden rounded-3xl bg-white text-sm leading-6 shadow-lg ring-1 ring-gray-900/5">
+                                                <div className="p-4">
+                                                    {item.products.map(
+                                                        (product) => (
+                                                            <div
+                                                                key={
+                                                                    product.name
+                                                                }
+                                                                className="group relative flex gap-x-6 rounded-lg p-4 hover:bg-gray-50"
+                                                            >
+                                                                <div>
+                                                                    <Link
+                                                                        to={
+                                                                            product.route
+                                                                        }
+                                                                        className="font-semibold text-gray-900"
+                                                                    >
+                                                                        {
+                                                                            product.name
+                                                                        }
+                                                                        <span className="absolute inset-0" />
+                                                                    </Link>
+                                                                </div>
+                                                            </div>
+                                                        )
+                                                    )}
+                                                </div>
+                                            </div>
+                                        </PopoverPanel>
+                                    )}
+                                </Popover>
+                            </>
                         ))}
                     </div>
                     <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-                        <a
-                            href="/cart"
+                        <Link
+                            to="/cart"
                             className="text-sm font-semibold leading-6 text-gray-900"
                         >
                             <div className="relative py-2">
@@ -82,7 +153,7 @@ function Header() {
                                     />
                                 </svg>
                             </div>
-                        </a>
+                        </Link>
                     </div>
                 </nav>
                 <Dialog
@@ -93,14 +164,14 @@ function Header() {
                     <div className="fixed inset-0 z-50" />
                     <DialogPanel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
                         <div className="flex items-center justify-between">
-                            <a href="/" className="-m-1.5 p-1.5">
+                            <Link to="/" className="-m-1.5 p-1.5">
                                 <span className="sr-only">Your Company</span>
                                 <img
                                     className="h-8 w-auto"
                                     src={logo}
                                     alt="logo"
                                 />
-                            </a>
+                            </Link>
                             <button
                                 type="button"
                                 className="-m-2.5 rounded-md p-2.5 text-gray-700"
@@ -115,17 +186,72 @@ function Header() {
                         </div>
                         <div className="mt-6 flow-root">
                             <div className="-my-6 divide-y divide-gray-500/10">
-                                <div className="space-y-2 py-6">
-                                    {navigation.map((item) => (
-                                        <a
-                                            key={item.name}
-                                            href={item.href}
-                                            className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                                <div>
+                                    {NavItems.map((item) => (
+                                        <Disclosure
+                                            as="div"
+                                            key={item.id}
+                                            className="border-b border-gray-200 py-6"
                                         >
-                                            {item.name}
-                                        </a>
+                                            {({ open }) => (
+                                                <>
+                                                    <h3 className="-my-3 flow-root">
+                                                        <DisclosureButton className="flex w-full items-center justify-between bg-white py-3 text-sm text-gray-400 hover:text-gray-500">
+                                                            <span className="font-medium text-gray-900">
+                                                                {item.category}
+                                                            </span>
+                                                            <span className="ml-6 flex items-center">
+                                                                {open ? (
+                                                                    <MinusIcon
+                                                                        className="h-5 w-5"
+                                                                        aria-hidden="true"
+                                                                    />
+                                                                ) : (
+                                                                    <PlusIcon
+                                                                        className="h-5 w-5"
+                                                                        aria-hidden="true"
+                                                                    />
+                                                                )}
+                                                            </span>
+                                                        </DisclosureButton>
+                                                    </h3>
+                                                    <DisclosurePanel className="pt-6">
+                                                        <div className="space-y-4">
+                                                            {item.products.map(
+                                                                (
+                                                                    product,
+                                                                    productIdx
+                                                                ) => (
+                                                                    <div
+                                                                        key={
+                                                                            productIdx
+                                                                        }
+                                                                        className="group relative flex gap-x-6 rounded-lg p-4 hover:bg-gray-50"
+                                                                    >
+                                                                        <div>
+                                                                            <Link
+                                                                                to={
+                                                                                    product.route
+                                                                                }
+                                                                                className="font-medium text-gray-900"
+                                                                            >
+                                                                                {
+                                                                                    product.name
+                                                                                }
+                                                                                <span className="absolute inset-0" />
+                                                                            </Link>
+                                                                        </div>
+                                                                    </div>
+                                                                )
+                                                            )}
+                                                        </div>
+                                                    </DisclosurePanel>
+                                                </>
+                                            )}
+                                        </Disclosure>
                                     ))}
                                 </div>
+
                                 <div className="py-6">
                                     <a href="/cart">
                                         <div className="relative py-2">

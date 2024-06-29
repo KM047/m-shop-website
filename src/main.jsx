@@ -8,9 +8,15 @@ import { Provider } from "react-redux";
 import { store, persistor } from "./redux/store.js";
 
 import { PersistGate } from "redux-persist/integration/react";
-import AboutPage from "./pages/AboutPage.jsx";
 
-import { HomePage, CartPage, NotFoundPage, ProductPage } from "./pages/index.js";
+import {
+    HomePage,
+    CartPage,
+    NotFoundPage,
+    ProductPage,
+    ProductOverviewPage,
+    AboutPage,
+} from "./pages/index.js";
 
 const router = createBrowserRouter([
     {
@@ -20,13 +26,16 @@ const router = createBrowserRouter([
 
         children: [
             {
-                path: "/",
+                path: "",
                 element: <HomePage />,
             },
             {
                 path: "/products",
                 element: <ProductPage />,
-                // errorElement: <NotFoundPage />,
+            },
+            {
+                path: "/products/p/:productId",
+                element: <ProductOverviewPage />,
             },
             {
                 path: "/cart",

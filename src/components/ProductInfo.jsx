@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, useParams } from "react-router-dom";
-import { products } from "../constants/Constants";
+import { categoryByProducts } from "../constants/Constants";
 import { ChevronDown } from "lucide-react";
 import { FaRegStar, FaStar, FaStarHalfAlt } from "react-icons/fa";
 
@@ -16,14 +16,33 @@ import { useDispatch } from "react-redux";
 import { addToCart } from "../redux/reducers/CartSlice";
 
 export function ProductInfo() {
-    const { productId } = useParams();
+    let { productId, category } = useParams();
+
+    productId = window.atob(productId);
 
     const { NotificationComponent, triggerNotification } = useNotification("");
 
     const dispatch = useDispatch();
+    const products = categoryByProducts;
+
+    const filteredProducts = (productId, category) => {
+        const categoryObj = products.find(
+            (cat) => cat.category.toLowerCase() === category.toLowerCase()
+        );
+
+        console.log(categoryObj);
+
+        if (categoryObj) {
+            const product = categoryObj.products.find(
+                (prod) => prod.id === +productId
+            );
+            return product || null;
+        }
+
+        return null;
+    };
 
     const handleAddToCart = (product) => {
-        // console.log("add to cart", product);
         dispatch(addToCart({ id: product.id, product }));
 
         triggerNotification({
@@ -36,8 +55,8 @@ export function ProductInfo() {
 
     const rating = 3;
 
-    const product = products.find((product) => product.id === +productId);
-
+    const product = filteredProducts(productId, category);
+    console.log(product);
     return (
         <>
             {NotificationComponent}
@@ -73,7 +92,8 @@ export function ProductInfo() {
                         <div className="mt-6 w-full lg:mt-0 lg:w-1/2 lg:pl-10">
                             <h2 className="text-sm font-semibold tracking-widest text-gray-500">
                                 <span className="font-bold">Category</span> -{" "}
-                                {product.category}
+                                {category.charAt(0).toUpperCase() +
+                                    category.slice(1)}
                             </h2>
                             <h1 className="my-4 text-3xl font-semibold text-black">
                                 {product.name}
@@ -145,7 +165,7 @@ export function ProductInfo() {
                             </div>
                             <div className="flex items-center justify-between">
                                 <span className="title-font text-xl font-bold text-gray-900 sm:text-2xl md:text-3xl">
-                                    ₹47,199
+                                    ₹ {product.price}
                                 </span>
                                 <button
                                     onClick={() => handleAddToCart(product)}

@@ -1,94 +1,109 @@
-export const products = [
-    {
-        id: 1,
-        name: "Homemade Chocolate Cake",
-        category: "Cakes",
-        description:
-            "Delicious homemade chocolate cake with rich chocolate frosting.",
-        price: 100,
-        imageUrl:
-            "https://res.cloudinary.com/kunal047/image/upload/v1703222734/samples/food/fish-vegetables.jpg",
-        isAvailable: true,
-    },
-    {
-        id: 2,
-        name: "Homemade Lasagna",
-        category: "Main Course",
-        description:
-            "A traditional homemade lasagna with layers of cheese and meat sauce.",
-        price: 150,
-        imageUrl:
-            "https://res.cloudinary.com/kunal047/image/upload/v1703222734/samples/food/fish-vegetables.jpg",
-        isAvailable: true,
-    },
-    {
-        id: 3,
-        name: "Vegan Brownies",
-        category: "Desserts",
-        description: "Fudgy vegan brownies made with the finest ingredients.",
-        price: 200,
-        imageUrl:
-            "https://res.cloudinary.com/kunal047/image/upload/v1703222734/samples/food/fish-vegetables.jpg",
-        isAvailable: true,
-    },
-    {
-        id: 4,
-        name: "Marathi Thali",
-        category: "Main Course",
-        description:
-            "A complete Marathi Thali with a variety of traditional dishes.",
-        price: 600,
-        imageUrl:
-            "https://res.cloudinary.com/kunal047/image/upload/v1703222734/samples/food/fish-vegetables.jpg",
-        isAvailable: true,
-    },
-    {
-        id: 5,
-        name: "Homemade Cookies",
-        category: "Snacks",
-        description:
-            "Crispy and delicious homemade cookies in various flavors.",
-        price: 300,
-        imageUrl:
-            "https://res.cloudinary.com/kunal047/image/upload/v1703222734/samples/food/fish-vegetables.jpg",
-        isAvailable: true,
-    },
-];
-
-export const categories = [
-    { id: 0, name: "All" },
-    { id: 1, name: "Cakes" },
-    { id: 2, name: "Main Course" },
-    { id: 3, name: "Desserts" },
-    { id: 4, name: "Snacks" },
-];
-
-export const NavItems = [
+export const categoryByProducts = [
     {
         id: 1,
         category: "Traditional",
         products: [
-            { id: 1, name: "Modak", route: "/traditional/modak" },
-            { id: 2, name: "Karanji", route: "/traditional/karanji" },
-            { id: 3, name: "Puranpoli", route: "/traditional/puranpoli" },
+            {
+                id: 1,
+                name: "Modak",
+                route: "traditional/modak",
+                description: "Traditional sweet dumpling",
+                price: 300,
+                imageUrl: [
+                    "https://res.cloudinary.com/kunal047/image/upload/v1703222734/samples/food/fish-vegetables.jpg",
+                ],
+                isAvailable: true,
+                category: "Traditional",
+            },
+            {
+                id: 2,
+                name: "Karanji",
+                route: "traditional/karanji",
+                description: "Deep fried sweet dumpling",
+                price: 200,
+                imageUrl: [
+                    "https://res.cloudinary.com/kunal047/image/upload/v1703222734/samples/food/fish-vegetables.jpg",
+                ],
+                isAvailable: true,
+                category: "Traditional",
+            },
+            {
+                id: 3,
+                name: "Puranpoli",
+                route: "traditional/puranpoli",
+                description: "Stuffed sweet flatbread",
+                price: 300,
+                imageUrl: [
+                    "https://res.cloudinary.com/kunal047/image/upload/v1703222734/samples/food/fish-vegetables.jpg",
+                ],
+                isAvailable: true,
+                category: "Traditional",
+            },
         ],
     },
     {
         id: 2,
         category: "Healthy",
         products: [
-            { id: 4, name: "Dink Ladoo", route: "/healthy/dink-ladoo" },
-            { id: 5, name: "Methi Ladoo", route: "/healthy/methi-ladoo" },
+            {
+                id: 4,
+                name: "Dink Ladoo",
+                route: "healthy/dink-ladoo",
+                description: "Ladoo made with edible gum",
+                price: 300,
+                imageUrl: [
+                    "https://res.cloudinary.com/kunal047/image/upload/v1703222734/samples/food/fish-vegetables.jpg",
+                ],
+                isAvailable: true,
+                category: "Healthy",
+            },
+            {
+                id: 5,
+                name: "Methi Ladoo",
+                route: "healthy/methi-ladoo",
+                description: "Ladoo made with fenugreek",
+                price: 300,
+                imageUrl: [
+                    "https://res.cloudinary.com/kunal047/image/upload/v1703222734/samples/food/fish-vegetables.jpg",
+                ],
+                isAvailable: true,
+                category: "Healthy",
+            },
             {
                 id: 6,
                 name: "Dry Fruits Ladoo",
-                route: "/healthy/dry-fruits-ladoo",
+                route: "healthy/dry-fruits-ladoo",
+                description: "Ladoo made with dry fruits",
+                price: 300,
+                imageUrl: [
+                    "https://res.cloudinary.com/kunal047/image/upload/v1703222734/samples/food/fish-vegetables.jpg",
+                ],
+                isAvailable: true,
+                category: "Healthy",
             },
-            { id: 7, name: "Gulkand Karnji", route: "/healthy/gulkand-karnji" },
+            {
+                id: 7,
+                name: "Gulkand Karanji",
+                route: "healthy/gulkand-karanji",
+                description: "Sweet dumpling with rose petal jam",
+                price: 300,
+                imageUrl: [
+                    "https://res.cloudinary.com/kunal047/image/upload/v1703222734/samples/food/fish-vegetables.jpg",
+                ],
+                isAvailable: true,
+                category: "Healthy",
+            },
             {
                 id: 8,
-                name: "Peanut & Jaggery Ladoo",
-                route: "/healthy/peanut-jaggery-ladoo",
+                name: "Peanut Jaggery Ladoo",
+                route: "healthy/peanut-jaggery-ladoo",
+                description: "Ladoo made with peanuts and jaggery",
+                price: 300,
+                imageUrl: [
+                    "https://res.cloudinary.com/kunal047/image/upload/v1703222734/samples/food/fish-vegetables.jpg",
+                ],
+                isAvailable: true,
+                category: "Healthy",
             },
         ],
     },
@@ -96,37 +111,131 @@ export const NavItems = [
         id: 3,
         category: "Ladoos",
         products: [
-            { id: 9, name: "Besan Ladoo", route: "/ladoos/besan-ladoo" },
-            { id: 10, name: "Mugdal Ladoo", route: "/ladoos/mugdal-ladoo" },
-            { id: 11, name: "Rava Ladoo", route: "/ladoos/rava-ladoo" },
-            { id: 12, name: "Alive Ladoo", route: "/ladoos/alive-ladoo" },
-            { id: 13, name: "Upawas Ladoo", route: "/ladoos/upawas-ladoo" },
+            {
+                id: 9,
+                name: "Besan Ladoo",
+                route: "ladoos/besan-ladoo",
+                description: "Ladoo made with chickpea flour",
+                price: 300,
+                imageUrl: [
+                    "https://res.cloudinary.com/kunal047/image/upload/v1703222734/samples/food/fish-vegetables.jpg",
+                ],
+                isAvailable: true,
+                category: "Ladoos",
+            },
+            {
+                id: 10,
+                name: "Mugdal Ladoo",
+                route: "ladoos/mugdal-ladoo",
+                description: "Ladoo made with mung beans",
+                price: 300,
+                imageUrl: [
+                    "https://res.cloudinary.com/kunal047/image/upload/v1703222734/samples/food/fish-vegetables.jpg",
+                ],
+                isAvailable: true,
+                category: "Ladoos",
+            },
+            {
+                id: 11,
+                name: "Rava Ladoo",
+                route: "ladoos/rava-ladoo",
+                description: "Ladoo made with semolina",
+                price: 300,
+                imageUrl: [
+                    "https://res.cloudinary.com/kunal047/image/upload/v1703222734/samples/food/fish-vegetables.jpg",
+                ],
+                isAvailable: true,
+                category: "Ladoos",
+            },
+            {
+                id: 12,
+                name: "Aliv Ladoo",
+                route: "ladoos/aliv-ladoo",
+                description: "Ladoo made with watercress seeds",
+                price: 300,
+                imageUrl: [
+                    "https://res.cloudinary.com/kunal047/image/upload/v1703222734/samples/food/fish-vegetables.jpg",
+                ],
+                isAvailable: true,
+                category: "Ladoos",
+            },
+            {
+                id: 13,
+                name: "Upawas Ladoo",
+                route: "ladoos/upawas-ladoo",
+                description: "Fasting ladoo",
+                price: 300,
+                imageUrl: [
+                    "https://res.cloudinary.com/kunal047/image/upload/v1703222734/samples/food/fish-vegetables.jpg",
+                ],
+                isAvailable: true,
+                category: "Ladoos",
+            },
         ],
     },
     {
         id: 4,
         category: "Special Namkeen",
         products: [
-            { id: 14, name: "Chakli", route: "/special-namkeen/chakli" },
+            {
+                id: 14,
+                name: "Chakli",
+                route: "special-namkeen/chakli",
+                description: "Spiral-shaped crispy snack",
+                price: 300,
+                imageUrl: [
+                    "https://res.cloudinary.com/kunal047/image/upload/v1703222734/samples/food/fish-vegetables.jpg",
+                ],
+                isAvailable: true,
+                category: "Special Namkeen",
+            },
             {
                 id: 15,
-                name: "Namkeen Shankarpali (Only Wheat)",
-                route: "/special-namkeen/namkeen-shankarpali",
+                name: "Namkeen Shankarpali",
+                route: "special-namkeen/namkeen-shankarpali",
+                description: "Crunchy savory snack",
+                price: 300,
+                imageUrl: [
+                    "https://res.cloudinary.com/kunal047/image/upload/v1703222734/samples/food/fish-vegetables.jpg",
+                ],
+                isAvailable: true,
+                category: "Special Namkeen",
             },
             {
                 id: 16,
                 name: "Bhadang (Red)",
-                route: "/special-namkeen/bhadang-red",
+                route: "special-namkeen/bhadang-red",
+                description: "Spicy puffed rice",
+                price: 300,
+                imageUrl: [
+                    "https://res.cloudinary.com/kunal047/image/upload/v1703222734/samples/food/fish-vegetables.jpg",
+                ],
+                isAvailable: true,
+                category: "Special Namkeen",
             },
             {
                 id: 17,
                 name: "Bhadang (Yellow)",
-                route: "/special-namkeen/bhadang-yellow",
+                route: "special-namkeen/bhadang-yellow",
+                description: "Savory puffed rice",
+                price: 300,
+                imageUrl: [
+                    "https://res.cloudinary.com/kunal047/image/upload/v1703222734/samples/food/fish-vegetables.jpg",
+                ],
+                isAvailable: true,
+                category: "Special Namkeen",
             },
             {
                 id: 18,
-                name: "Pudachi Karnji",
-                route: "/special-namkeen/pudachi-karnji",
+                name: "Pudachi Karanji",
+                route: "special-namkeen/pudachi-karanji",
+                description: "Fried dumpling with coconut filling",
+                price: 300,
+                imageUrl: [
+                    "https://res.cloudinary.com/kunal047/image/upload/v1703222734/samples/food/fish-vegetables.jpg",
+                ],
+                isAvailable: true,
+                category: "Special Namkeen",
             },
         ],
     },
@@ -134,16 +243,41 @@ export const NavItems = [
         id: 5,
         category: "Office Snacking",
         products: [
-            { id: 19, name: "Makhana", route: "/office-snacking/makhana" },
+            {
+                id: 19,
+                name: "Makhana",
+                route: "office-snacking/makhana",
+                description: "Roasted fox nuts",
+                price: 300,
+                imageUrl: [
+                    "https://res.cloudinary.com/kunal047/image/upload/v1703222734/samples/food/fish-vegetables.jpg",
+                ],
+                isAvailable: true,
+                category: "Office Snacking",
+            },
             {
                 id: 20,
                 name: "Chakli Sticks",
-                route: "/office-snacking/chakli-sticks",
+                route: "office-snacking/chakli-sticks",
+                description: "Crispy snack sticks",
+                price: 300,
+                imageUrl: [
+                    "https://res.cloudinary.com/kunal047/image/upload/v1703222734/samples/food/fish-vegetables.jpg",
+                ],
+                isAvailable: true,
+                category: "Office Snacking",
             },
             {
                 id: 21,
                 name: "Protein Ladoo",
-                route: "/office-snacking/protein-ladoo",
+                route: "office-snacking/protein-ladoo",
+                description: "High-protein energy balls",
+                price: 300,
+                imageUrl: [
+                    "https://res.cloudinary.com/kunal047/image/upload/v1703222734/samples/food/fish-vegetables.jpg",
+                ],
+                isAvailable: true,
+                category: "Office Snacking",
             },
         ],
     },

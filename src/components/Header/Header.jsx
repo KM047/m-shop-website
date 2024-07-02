@@ -16,17 +16,12 @@ import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { ChevronDownIcon, MinusIcon, PlusIcon } from "lucide-react";
 
-import { NavItems } from "../../constants/Constants";
+import { categoryByProducts } from "../../constants/Constants";
 
 function Header() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-    const navigation = [
-        { name: "Home", href: "/" },
-        { name: "Product", href: "/products" },
-        { name: "Features", href: "/features" },
-        { name: "About", href: "/about" },
-    ];
+    const navItems = categoryByProducts;
 
     const [openPopover, setOpenPopover] = useState(null);
 
@@ -37,10 +32,6 @@ function Header() {
     const handleMouseLeave = () => {
         setOpenPopover(null);
     };
-
-    // const handleClick = (id) => {
-    //     setOpenPopover((prev) => (prev === id ? null : id));
-    // };
 
     const { totalQuantity } = useSelector((state) => state.cart);
 
@@ -68,7 +59,7 @@ function Header() {
                         </button>
                     </div>
                     <div className="hidden lg:flex lg:gap-x-8">
-                        {NavItems.map((item, key) => (
+                        {navItems.map((item, key) => (
                             <>
                                 <Popover
                                     className="relative px-6 py-2"
@@ -79,6 +70,7 @@ function Header() {
                                         onMouseEnter={() =>
                                             handleMouseEnter(item.id)
                                         }
+                                        key={key}
                                     >
                                         <span>{item.category}</span>
                                         <ChevronDownIcon
@@ -92,6 +84,7 @@ function Header() {
                                             transition
                                             className="absolute left-1/2 z-10 mt-5 flex w-screen max-w-max -translate-x-1/2 px-4 transition data-[closed]:translate-y-1 data-[closed]:opacity-0 data-[enter]:duration-200 data-[leave]:duration-150 data-[enter]:ease-out data-[leave]:ease-in"
                                             onMouseLeave={handleMouseLeave}
+                                            key={key}
                                         >
                                             <div className="w-screen max-w-sm flex-auto overflow-hidden rounded-3xl bg-white text-sm leading-6 shadow-lg ring-1 ring-gray-900/5">
                                                 <div className="p-4">
@@ -105,9 +98,9 @@ function Header() {
                                                             >
                                                                 <div>
                                                                     <Link
-                                                                        to={
-                                                                            product.route
-                                                                        }
+                                                                        to={`/products/${item.category.toLowerCase()}/${window.btoa(
+                                                                            product.id
+                                                                        )}`}
                                                                         className="font-semibold text-gray-900"
                                                                     >
                                                                         {
@@ -127,7 +120,7 @@ function Header() {
                             </>
                         ))}
                     </div>
-                    <div className="hidden lg:flex lg:flex-1 lg:justify-end">
+                    <div className="hidden lg:flex lg:flex-1 lg:justify-end gap-1">
                         <Link
                             to="/cart"
                             className="text-sm font-semibold leading-6 text-gray-900"
@@ -187,7 +180,7 @@ function Header() {
                         <div className="mt-6 flow-root">
                             <div className="-my-6 divide-y divide-gray-500/10">
                                 <div>
-                                    {NavItems.map((item) => (
+                                    {navItems.map((item) => (
                                         <Disclosure
                                             as="div"
                                             key={item.id}
@@ -230,9 +223,9 @@ function Header() {
                                                                     >
                                                                         <div>
                                                                             <Link
-                                                                                to={
-                                                                                    product.route
-                                                                                }
+                                                                                to={`/products/${item.category.toLowerCase()}/${window.btoa(
+                                                                                    product.id
+                                                                                )}`}
                                                                                 className="font-medium text-gray-900"
                                                                             >
                                                                                 {

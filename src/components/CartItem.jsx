@@ -7,6 +7,8 @@ import {
 } from "../redux/reducers/CartSlice";
 import { Link } from "react-router-dom";
 
+import emptyCart from "../assets/empty-cart.png";
+
 function CartItem() {
     const { cartItems, totalQuantity, totalPrice } = useSelector(
         (state) => state.cart
@@ -57,7 +59,9 @@ function CartItem() {
                                             <li className="flex py-6 sm:py-6 ">
                                                 <div className="flex-shrink rounded-md overflow-hidden ">
                                                     <img
-                                                        src={product.imageUrl}
+                                                        src={
+                                                            product.imageUrl[0]
+                                                        }
                                                         alt={product.name}
                                                         className="sm:h-38 sm:w-38 h-24 w-24 rounded-xl object-cover object-center "
                                                     />
@@ -69,7 +73,9 @@ function CartItem() {
                                                             <div className="flex justify-between">
                                                                 <h3 className="text-sm">
                                                                     <Link
-                                                                        to={`/products/p/${product.id}`}
+                                                                        to={`/products/${product.category.toLowerCase()}/${window.btoa(
+                                                                            product.id
+                                                                        )}`}
                                                                         className="font-bold text-black text-base"
                                                                     >
                                                                         {
@@ -79,11 +85,13 @@ function CartItem() {
                                                                 </h3>
                                                             </div>
                                                             <div className="mt-1 flex text-sm">
-                                                                <p className="text-sm text-gray-500">
-                                                                    {
-                                                                        product.color
-                                                                    }
-                                                                </p>
+                                                                {product.color ? (
+                                                                    <p className="text-sm text-gray-500">
+                                                                        {
+                                                                            product.color
+                                                                        }
+                                                                    </p>
+                                                                ) : null}
                                                                 {product.size ? (
                                                                     <p className="ml-4 border-l border-gray-200 pl-4 text-sm text-gray-500">
                                                                         {
@@ -193,7 +201,16 @@ function CartItem() {
                             </>
                         ) : (
                             <>
-                                <h2>Cart is empty</h2>
+                                <div className="flex justify-center items-center">
+                                    <img
+                                        src={emptyCart}
+                                        alt="empty cart"
+                                        className="w-1/2 h-1/2"
+                                    />
+                                </div>
+                                <h2 className="text-xl font-medium">
+                                    Cart is empty
+                                </h2>
                             </>
                         )}
                     </section>

@@ -1,4 +1,3 @@
-import { products, categories } from "../constants/Constants";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../redux/reducers/CartSlice";
 import useNotification from "../utils/UseNotification";
@@ -19,6 +18,7 @@ import {
 import { useState } from "react";
 
 import { Link } from "react-router-dom";
+import { categoryByProducts } from "./../constants/Constants";
 
 function classNames(...classes) {
     return classes.filter(Boolean).join(" ");
@@ -41,19 +41,34 @@ function ProductPage() {
         });
     };
 
-    const [selectedCategory, setSelectedCategory] = useState(categories[0]);
+    const navItems = categoryByProducts;
+
+    const [selectedCategory, setSelectedCategory] = useState({
+        category: "All",
+    });
 
     const [searchQuery, setSearchQuery] = useState("");
 
-    const filteredProducts = products.filter((product) => {
+    const allProducts = navItems.reduce((acc, category) => {
+        const productsWithCategory = category.products.map((product) => ({
+            ...product,
+            category: category.category, // Add category to each product
+        }));
+        return [...acc, ...productsWithCategory];
+    }, []);
+
+    console.log(allProducts);
+
+    const filteredProducts = allProducts.filter((product) => {
         const matchedCategory =
-            selectedCategory && selectedCategory.name !== "All"
-                ? product.category === selectedCategory.name
+            selectedCategory && selectedCategory.category !== "All"
+                ? product.category === selectedCategory.category
                 : true;
 
         const matchedProductSearch = product.name
             .toLowerCase()
             .includes(searchQuery.toLowerCase());
+
         return matchedCategory && matchedProductSearch;
     });
 
@@ -88,7 +103,7 @@ function ProductPage() {
                                                         <span className="flex items-center">
                                                             <span className="ml-3 block truncate">
                                                                 {selectedCategory
-                                                                    ? selectedCategory.name
+                                                                    ? selectedCategory.category
                                                                     : "Select a category"}
                                                             </span>
                                                         </span>
@@ -104,7 +119,7 @@ function ProductPage() {
                                                         transition
                                                         className="absolute  w-56  z-10 mt-1 max-h-56 overflow-hidden rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none data-[closed]:data-[leave]:opacity-0 data-[leave]:transition data-[leave]:duration-100 data-[leave]:ease-in sm:text-sm"
                                                     >
-                                                        {categories.map(
+                                                        {navItems.map(
                                                             (category) => (
                                                                 <ListboxOption
                                                                     key={
@@ -142,7 +157,7 @@ function ProductPage() {
                                                                                     )}
                                                                                 >
                                                                                     {
-                                                                                        category.name
+                                                                                        category.category
                                                                                     }
                                                                                 </span>
                                                                             </div>
@@ -200,16 +215,15 @@ function ProductPage() {
                                             type="search"
                                             value={searchQuery}
                                             onChange={(e) => {
-                                                setSelectedCategory(
-                                                    categories[0]
-                                                );
+                                                setSelectedCategory({
+                                                    category: "All",
+                                                });
                                                 setSearchQuery(e.target.value);
                                             }}
                                         />
                                     </div>
                                 </div>
 
-                                {/* TODO: Add mobile filter in this  */}
                                 <div className=" relative flex flex-row justify-between items-center px-3 gap-2 sm:hidden ">
                                     <Listbox
                                         value={selectedCategory}
@@ -229,7 +243,7 @@ function ProductPage() {
                                                         transition
                                                         className="absolute w-40  z-10 mt-1 max-h-56 overflow-hidden rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none data-[closed]:data-[leave]:opacity-0 data-[leave]:transition data-[leave]:duration-100 data-[leave]:ease-in sm:text-sm"
                                                     >
-                                                        {categories.map(
+                                                        {navItems.map(
                                                             (category) => (
                                                                 <ListboxOption
                                                                     key={
@@ -249,7 +263,7 @@ function ProductPage() {
                                                                         )
                                                                     }
                                                                     value={
-                                                                        category
+                                                                        category.category
                                                                     }
                                                                 >
                                                                     {({
@@ -267,7 +281,7 @@ function ProductPage() {
                                                                                     )}
                                                                                 >
                                                                                     {
-                                                                                        category.name
+                                                                                        category.category
                                                                                     }
                                                                                 </span>
                                                                             </div>
@@ -342,7 +356,12 @@ function ProductPage() {
                             id={product.id}
                             className="group relative"
                         >
-                            <Link to={`/products/p/${product.id}`} key={key}>
+                            <Link
+                                to={`/products/${product.category.toLowerCase()}/${window.btoa(
+                                    product.id
+                                )}`}
+                                key={key}
+                            >
                                 <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
                                     {product.id % 2 == 0 ? (
                                         <div className="absolute right-2 top-2">
@@ -352,8 +371,8 @@ function ProductPage() {
                                         </div>
                                     ) : null}
                                     <img
-                                        src={product.imageUrl}
-                                        alt={product.imageAlt}
+                                        src={product.imageUrl[0]}
+                                        alt={product.name}
                                         className="h-full w-full object-cover object-center lg:h-full lg:w-full  transition-transform ease-linear group-hover:scale-105  "
                                     />
                                 </div>

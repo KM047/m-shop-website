@@ -4,7 +4,7 @@ import AboutSection from "../components/AboutSection";
 function AboutPage() {
     return (
         <>
-            <div className="">
+            <div className="bg-primary">
                 <AboutSection />
             </div>
         </>

@@ -12,12 +12,13 @@ function HomePage() {
         <>
             <div className="">
                 <HeroSection />
-                {/* <FeatureSection /> */}
+                <FeatureSection />
                 {/* Category section */}
                 <CategorySection />
                 <div className="flex flex-wrap justify-center">
                     <CategoryCard />
                     <CategoryCard />
+                    
                 </div>
               
             </div>

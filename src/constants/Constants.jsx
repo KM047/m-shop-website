@@ -2,6 +2,8 @@ export const categoryByProducts = [
     {
         id: 1,
         category: "Traditional",
+        description: "lorem ipsum dolor sit amet, consectetur adip",
+        imageUrl: "",
         products: [
             {
                 id: 1,
@@ -44,6 +46,7 @@ export const categoryByProducts = [
     {
         id: 2,
         category: "Healthy",
+        description: "lorem ipsum dolor sit amet, consectetur adip",
         products: [
             {
                 id: 4,
@@ -110,6 +113,7 @@ export const categoryByProducts = [
     {
         id: 3,
         category: "Ladoos",
+        description: "lorem ipsum dolor sit amet, consectetur adip",
         products: [
             {
                 id: 9,
@@ -176,6 +180,7 @@ export const categoryByProducts = [
     {
         id: 4,
         category: "Special Namkeen",
+        description: "lorem ipsum dolor sit amet, consectetur adip",
         products: [
             {
                 id: 14,
@@ -242,6 +247,7 @@ export const categoryByProducts = [
     {
         id: 5,
         category: "Office Snacking",
+        description: "lorem ipsum dolor sit amet, consectetur adip",
         products: [
             {
                 id: 19,
@@ -280,5 +286,23 @@ export const categoryByProducts = [
                 category: "Office Snacking",
             },
         ],
+    },
+];
+
+export const footerItems = [
+    {
+        id: 1,
+        name: "Home",
+        route: "/",
+    },
+    {
+        id: 2,
+        name: "Products",
+        route: "/products",
+    },
+    {
+        id: 3,
+        name: "About us",
+        route: "/about",
     },
 ];

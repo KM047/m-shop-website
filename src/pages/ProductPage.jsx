@@ -73,7 +73,7 @@ function ProductPage() {
     });
 
     return (
-        <div className="bg-white ">
+        <div className="bg-primary ">
             {NotificationComponent}
             <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-12 lg:max-w-7xl lg:px-8">
                 <h2 className="text-3xl font-bold tracking-tight text-gray-900">
@@ -99,7 +99,7 @@ function ProductPage() {
                                                     Category
                                                 </Label>
                                                 <div className="relative mt-2 w-56">
-                                                    <ListboxButton className="relative w-36 cursor-default rounded-md bg-white py-1.5 pl-3 pr-10 text-left text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 sm:text-sm sm:leading-6">
+                                                    <ListboxButton className="relative w-36 cursor-default rounded-md bg-primary py-1.5 pl-3 pr-10 text-left text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 sm:text-sm sm:leading-6">
                                                         <span className="flex items-center">
                                                             <span className="ml-3 block truncate">
                                                                 {selectedCategory
@@ -117,7 +117,7 @@ function ProductPage() {
 
                                                     <ListboxOptions
                                                         transition
-                                                        className="absolute  w-56  z-10 mt-1 max-h-56 overflow-hidden rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none data-[closed]:data-[leave]:opacity-0 data-[leave]:transition data-[leave]:duration-100 data-[leave]:ease-in sm:text-sm"
+                                                        className="absolute  w-56  z-10 mt-1 max-h-56 overflow-hidden rounded-md bg-primary py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none data-[closed]:data-[leave]:opacity-0 data-[leave]:transition data-[leave]:duration-100 data-[leave]:ease-in sm:text-sm"
                                                     >
                                                         {navItems.map(
                                                             (category) => (
@@ -241,7 +241,7 @@ function ProductPage() {
 
                                                     <ListboxOptions
                                                         transition
-                                                        className="absolute w-40  z-10 mt-1 max-h-56 overflow-hidden rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none data-[closed]:data-[leave]:opacity-0 data-[leave]:transition data-[leave]:duration-100 data-[leave]:ease-in sm:text-sm"
+                                                        className="absolute w-40  z-10 mt-1 max-h-56 overflow-hidden rounded-md bg-primary py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none data-[closed]:data-[leave]:opacity-0 data-[leave]:transition data-[leave]:duration-100 data-[leave]:ease-in sm:text-sm"
                                                     >
                                                         {navItems.map(
                                                             (category) => (
@@ -254,16 +254,16 @@ function ProductPage() {
                                                                     }) =>
                                                                         classNames(
                                                                             focus
-                                                                                ? "bg-indigo-600 text-white"
+                                                                                ? "bg-accent text-white"
                                                                                 : "",
                                                                             !focus
-                                                                                ? "text-gray-900"
+                                                                                ? "text-quaternary"
                                                                                 : "",
                                                                             "relative cursor-default select-none py-2 pl-3 pr-9"
                                                                         )
                                                                     }
                                                                     value={
-                                                                        category.category
+                                                                        category
                                                                     }
                                                                 >
                                                                     {({
@@ -333,7 +333,7 @@ function ProductPage() {
                                             </svg>
                                         </button>
                                         <input
-                                            className="input rounded-full px-8 py-3 border-2 border-transparent focus:outline-none focus:border-blue-500 placeholder-gray-400 transition-all duration-300 shadow-md"
+                                            className="input rounded-full px-8 py-3 border-2 border-transparent focus:outline-none focus:border-accent placeholder-quinary transition-all duration-300 shadow-md"
                                             placeholder="Search Products..."
                                             // required=""
                                             type="search"
@@ -362,10 +362,10 @@ function ProductPage() {
                                 )}`}
                                 key={key}
                             >
-                                <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
+                                <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-senary lg:aspect-none group-hover:opacity-75 lg:h-80">
                                     {product.id % 2 == 0 ? (
                                         <div className="absolute right-2 top-2">
-                                            <span className="inline-flex items-center rounded-md bg-yellow-50 px-2 py-1 text-xs font-medium text-yellow-800 ring-1 ring-inset ring-yellow-600/20">
+                                            <span className="inline-flex items-center rounded-md bg-senary px-2 py-1 text-xs font-medium text-yellow-800 ring-1 ring-inset ring-yellow-600/20 ">
                                                 Our Best
                                             </span>
                                         </div>
@@ -378,20 +378,20 @@ function ProductPage() {
                                 </div>
                                 <div className="mt-4 flex justify-between">
                                     <div>
-                                        <h3 className="text-sm text-gray-700">
+                                        <h3 className="text-base font-semibold text-quaternary">
                                             <div>
                                                 <span
                                                     aria-hidden="true"
-                                                    className="absolute inset-8"
+                                                    className="absolute inset-8 group-hover:text-red-300"
                                                 />
                                                 {product.name}
                                             </div>
                                         </h3>
-                                        <p className="mt-1 text-sm text-gray-500">
+                                        <p className="mt-1 text-sm font-medium text-quinary">
                                             {product.category}
                                         </p>
                                     </div>
-                                    <p className="text-lg font-semibold text-gray-900 ">
+                                    <p className="text-xl font-semibold text-gray-900 ">
                                         ₹ {product.price}
                                     </p>
                                 </div>
@@ -400,7 +400,7 @@ function ProductPage() {
                             <button
                                 onClick={() => handleAddToCart(product)}
                                 type="button"
-                                className="mt-4 w-full rounded-md bg-black px-2 py-1.5 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                                className="mt-4 w-full rounded-md bg-accent px-2 py-1.5 text-sm font-bold text-primary shadow-sm hover:bg-purple-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-600"
                             >
                                 Add to Cart
                             </button>

@@ -37,7 +37,7 @@ function Header() {
 
     return (
         <>
-            <header className="bg-white bg-opacity-30 border-2 border-gray-200 backdrop-blur-md backdrop-filter top-0 left-0 w-full z-50 sticky rounded-2xl shadow-sm">
+            <header className="bg-primary bg-opacity-30 border-2 border-gray-200 backdrop-blur-md backdrop-filter top-0 left-0 w-full z-50 sticky rounded-2xl shadow-sm">
                 <nav
                     className="flex items-center justify-between p-6 lg:px-8"
                     aria-label="Global"
@@ -51,7 +51,7 @@ function Header() {
                     <div className="flex lg:hidden">
                         <button
                             type="button"
-                            className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
+                            className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-secondary"
                             onClick={() => setMobileMenuOpen(true)}
                         >
                             <span className="sr-only">Open main menu</span>
@@ -66,7 +66,7 @@ function Header() {
                                     key={key}
                                 >
                                     <PopoverButton
-                                        className="inline-flex items-center gap-x-1 px-2 py-1 text-sm font-semibold leading-6 text-gray-900"
+                                        className="inline-flex items-center gap-x-1 px-2 py-1 text-base font-semibold leading-6 text-quaternary hover:text-accent "
                                         onMouseEnter={() =>
                                             handleMouseEnter(item.id)
                                         }
@@ -86,7 +86,7 @@ function Header() {
                                             onMouseLeave={handleMouseLeave}
                                             key={key}
                                         >
-                                            <div className="w-screen max-w-sm flex-auto overflow-hidden rounded-3xl bg-white text-sm leading-6 shadow-lg ring-1 ring-gray-900/5">
+                                            <div className="w-screen max-w-sm flex-auto overflow-hidden rounded-3xl bg-primary text-sm leading-6 shadow-lg ring-1 ring-accent">
                                                 <div className="p-4">
                                                     {item.products.map(
                                                         (product) => (
@@ -94,7 +94,7 @@ function Header() {
                                                                 key={
                                                                     product.name
                                                                 }
-                                                                className="group relative flex gap-x-6 rounded-lg p-4 hover:bg-gray-50"
+                                                                className="group relative flex gap-x-6 rounded-lg p-4 hover:bg-accent bg-blend-screen transition ease-linear "
                                                             >
                                                                 <div>
                                                                     <Link
@@ -127,7 +127,7 @@ function Header() {
                         >
                             <div className="relative py-2">
                                 <div className="t-0 absolute left-3">
-                                    <p className="flex h-2 w-2 items-center justify-center rounded-full bg-red-500 p-3 text-xs text-white">
+                                    <p className="flex h-2 w-2 items-center justify-center rounded-full bg-red-500 p-3 text-sm font-semibold text-primary">
                                         {totalQuantity}
                                     </p>
                                 </div>
@@ -155,7 +155,7 @@ function Header() {
                     onClose={setMobileMenuOpen}
                 >
                     <div className="fixed inset-0 z-50" />
-                    <DialogPanel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+                    <DialogPanel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-primary px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
                         <div className="flex items-center justify-between">
                             <Link to="/" className="-m-1.5 p-1.5">
                                 <span className="sr-only">Your Company</span>
@@ -167,7 +167,7 @@ function Header() {
                             </Link>
                             <button
                                 type="button"
-                                className="-m-2.5 rounded-md p-2.5 text-gray-700"
+                                className="-m-2.5 rounded-md p-2.5 text-quaternary"
                                 onClick={() => setMobileMenuOpen(false)}
                             >
                                 <span className="sr-only">Close menu</span>
@@ -178,19 +178,19 @@ function Header() {
                             </button>
                         </div>
                         <div className="mt-6 flow-root">
-                            <div className="-my-6 divide-y divide-gray-500/10">
+                            <div className="-my-6 divide-y divide-quinary">
                                 <div>
                                     {navItems.map((item) => (
                                         <Disclosure
                                             as="div"
                                             key={item.id}
-                                            className="border-b border-gray-200 py-6"
+                                            className="border-b border-senary py-6"
                                         >
                                             {({ open }) => (
                                                 <>
                                                     <h3 className="-my-3 flow-root">
-                                                        <DisclosureButton className="flex w-full items-center justify-between bg-white py-3 text-sm text-gray-400 hover:text-gray-500">
-                                                            <span className="font-medium text-gray-900">
+                                                        <DisclosureButton className="flex w-full items-center justify-between bg-primary py-3 text-sm text-quaternary hover:text-quinary">
+                                                            <span className="font-medium text-quaternary">
                                                                 {item.category}
                                                             </span>
                                                             <span className="ml-6 flex items-center">
@@ -219,14 +219,20 @@ function Header() {
                                                                         key={
                                                                             productIdx
                                                                         }
-                                                                        className="group relative flex gap-x-6 rounded-lg p-4 hover:bg-gray-50"
+                                                                        className="group relative flex gap-x-6 rounded-lg p-4 hover:bg-accent animate-slideIn"
+                                                                        style={{
+                                                                            animationDelay: `${
+                                                                                productIdx *
+                                                                                0.1
+                                                                            }s`,
+                                                                        }}
                                                                     >
-                                                                        <div>
+                                                                        <div className="">
                                                                             <Link
                                                                                 to={`/products/${item.category.toLowerCase()}/${window.btoa(
                                                                                     product.id
                                                                                 )}`}
-                                                                                className="font-medium text-gray-900"
+                                                                                className="font-medium text-quaternary"
                                                                             >
                                                                                 {
                                                                                     product.name
@@ -249,7 +255,7 @@ function Header() {
                                     <a href="/cart">
                                         <div className="relative py-2">
                                             <div className="t-0 absolute left-3">
-                                                <p className="flex h-2 w-2 items-center justify-center rounded-full bg-red-500 p-3 text-xs text-white">
+                                                <p className="flex h-2 w-2 items-center justify-center rounded-full bg-red-500 p-3 text-sm font-semibold text-primary">
                                                     {totalQuantity}
                                                 </p>
                                             </div>

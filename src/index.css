@@ -3,8 +3,12 @@
 @tailwind utilities;
 
 :root {
-    --color-primary: #3490dc;
-    --color-secondary: #f51e02;
+    --color-primary: #f8fbfe; /* gives 60% */
+    --color-secondary: #64748b; /* gives 30% */
+    --color-accent: #ac58f5; /* gives 10% */
+    --color-quaternary: #0f172a;
+    --color-quinary: #222c42;
+    --color-senary: #b1bed1;
     --font-main: "Monospace";
 }
 
@@ -13,5 +17,6 @@
 }
 
 body {
-    /* font-family: var(--font-main); */
+    background-color: var(--color-primary);
+    font-family: "Merriweather";
 }

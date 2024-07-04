@@ -164,13 +164,13 @@ export function ProductInfo() {
                                 </div>
                             </div>
                             <div className="flex items-center justify-between">
-                                <span className="title-font text-xl font-bold text-gray-900 sm:text-2xl md:text-3xl">
+                                <span className="title-font text-2xl font-bold text-gray-900 sm:text-2xl md:text-3xl">
                                     ₹ {product.price}
                                 </span>
                                 <button
                                     onClick={() => handleAddToCart(product)}
                                     type="button"
-                                    className="rounded-md bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                                    className="rounded-md bg-accent px-3 py-2 text-base font-semibold text-white shadow-sm hover:bg-purple-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
                                 >
                                     Add to Cart
                                 </button>

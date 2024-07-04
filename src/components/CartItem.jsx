@@ -31,7 +31,7 @@ function CartItem() {
     // console.log(cartItems);
 
     return (
-        <div className="mx-auto max-w-7xl px-2 lg:px-0">
+        <div className="bg-primary mx-auto max-w-7xl px-2 lg:px-0">
             <div className="mx-auto max-w-2xl py-8 lg:max-w-7xl">
                 <h1 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
                     Shopping Cart
@@ -39,7 +39,7 @@ function CartItem() {
                 <div className="mt-12 lg:grid lg:grid-cols-12 lg:items-start lg:gap-x-12 xl:gap-x-16">
                     <section
                         aria-labelledby="cart-heading"
-                        className="rounded-lg bg-white lg:col-span-8"
+                        className="rounded-lg bg-primary lg:col-span-8"
                     >
                         <h2 id="cart-heading" className="sr-only text-black">
                             Items in your shopping cart
@@ -217,7 +217,7 @@ function CartItem() {
                     {/* Order summary */}
                     <section
                         aria-labelledby="summary-heading"
-                        className="mt-16 rounded-md bg-white lg:col-span-4 lg:mt-0 lg:p-0"
+                        className="mt-16 rounded-md bg-primary lg:col-span-4 lg:mt-0 lg:p-0"
                     >
                         <h2
                             id="summary-heading"

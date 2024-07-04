@@ -1,12 +1,15 @@
 import React from "react";
 import { ProductInfo } from "../components/ProductInfo.jsx";
+import TitleSetter from "../utils/TitleSetter";
 
 function ProductOverviewPage() {
     return (
         <>
-            <div className="mt-3">
-                <ProductInfo />
-            </div>
+            <TitleSetter title={"Product"}>
+                <div className="mt-3">
+                    <ProductInfo />
+                </div>
+            </TitleSetter>
         </>
     );
 }

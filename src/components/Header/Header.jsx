@@ -233,6 +233,11 @@ function Header() {
                                                                                     product.id
                                                                                 )}`}
                                                                                 className="font-medium text-quaternary"
+                                                                                onClick={() =>
+                                                                                    setMobileMenuOpen(
+                                                                                        false
+                                                                                    )
+                                                                                }
                                                                             >
                                                                                 {
                                                                                     product.name

@@ -6,12 +6,12 @@ function Footer() {
     return (
         <>
             <div className="relative">
-                <section className="relative py-8 border-t-2 bg-senary rounded-lg border-t-secondary">
+                <section className="relative py-8 border-t-2 bg-primary shadow-lg rounded-lg ">
                     <div className="container relative mx-auto px-7">
                         <div className="-m-8 flex flex-wrap items-center justify-between">
                             <div className="w-auto p-8">
                                 <Link href="/">
-                                    <div className="inline-flex items-center">
+                                    <div className=" inline-flex items-center">
                                         <svg
                                             width="40"
                                             height="46"
@@ -33,15 +33,16 @@ function Footer() {
                             </div>
                             <div className=" w-auto p-8">
                                 <ul className="-m-5 flex flex-wrap items-center">
-                                    {footerItems.map((item, idx) => (
+                                    {footerItems.map((item, key) => (
                                         <>
-                                            <li className="p-5" key={idx}>
+                                            <li className="p-5" key={key}>
                                                 <NavLink
+                                                    key={key}
                                                     // className="font-medium text-quaternary hover:text-quinary  "
                                                     className={({ isActive }) =>
                                                         `font-semibold ${
                                                             !isActive &&
-                                                            "text-quaternary"
+                                                            "text-gray-600 hover:text-gray-900"
                                                         } hover:text-quinary ${
                                                             isActive &&
                                                             "text-accent"
@@ -57,7 +58,7 @@ function Footer() {
                                 </ul>
                             </div>
                             <div className="w-auto p-8">
-                                <div className="-m-1.5 flex flex-wrap gap-3">
+                                <div className="-m-1.5 flex flex-wrap gap-7">
                                     <div className="flex justify-center items-center">
                                         <Link
                                             to="/"

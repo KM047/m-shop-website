@@ -240,7 +240,7 @@ function CartItem() {
                                         <span>Discount</span>
                                     </dt>
                                     <dd className="text-sm font-medium text-green-700 line-through">
-                                        - ₹ 3,431
+                                        - ₹ 0
                                     </dd>
                                 </div>
                                 <div className="flex items-center justify-between py-4">
@@ -260,9 +260,9 @@ function CartItem() {
                                     </dd>
                                 </div>
                             </dl>
-                            <div className="px-2 pb-4 font-medium text-green-700">
+                            {/* <div className="px-2 pb-4 font-medium text-green-700">
                                 You will save ₹ 3,431 on this order
-                            </div>
+                            </div> */}
                             <div className="flex justify-center space-x-4">
                                 <Link to={"/products"}>
                                     <button

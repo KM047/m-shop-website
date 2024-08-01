@@ -3,7 +3,7 @@ import React, { useState } from "react";
 function ProductCard(product, key, handleAddToCart = () => {}) {
     return (
         <>
-            <div key={product.id} id={key} className="group relative">
+            <div key={product.id} id={key} className="group relative ">
                 <div className=" aspect-auto  w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
                     {product.id % 2 == 0 ? (
                         <div className="absolute right-2 top-2">

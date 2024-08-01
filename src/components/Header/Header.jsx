@@ -39,7 +39,7 @@ function Header() {
         <>
             <header className="bg-primary bg-opacity-30 border-2 border-gray-200 backdrop-blur-md backdrop-filter top-0 left-0 w-full z-50 sticky rounded-2xl shadow-sm">
                 <nav
-                    className="flex items-center justify-between p-6 lg:px-8"
+                    className="flex items-center justify-between p-4 lg:px-8"
                     aria-label="Global"
                 >
                     <div className="flex lg:flex-1">

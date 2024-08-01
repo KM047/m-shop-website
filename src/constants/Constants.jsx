@@ -2,18 +2,24 @@ export const categoryByProducts = [
     {
         id: 1,
         category: "Traditional",
-        description: "lorem ipsum dolor sit amet, consectetur adip",
-        imageUrl: "",
+        description:
+            "Savor the rich flavors of our timeless, traditional delights.",
+        imageUrl:
+            "https://res.cloudinary.com/kunal047/image/upload/v1722539037/M-Shop/Hero%20section%20images/r8kqruhb18yj2rt4hnax.png",
+
+        categoryTheme:
+            "bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500",
         products: [
             {
                 id: 1,
                 name: "Modak",
                 route: "traditional/modak",
                 description: "Traditional sweet dumpling",
-                price: 300,
+                price: 35,
                 imageUrl: [
                     "https://res.cloudinary.com/kunal047/image/upload/v1703222734/samples/food/fish-vegetables.jpg",
                 ],
+                perItem: true,
                 isAvailable: true,
                 category: "Traditional",
             },
@@ -22,7 +28,7 @@ export const categoryByProducts = [
                 name: "Karanji",
                 route: "traditional/karanji",
                 description: "Deep fried sweet dumpling",
-                price: 200,
+                price: 480,
                 imageUrl: [
                     "https://res.cloudinary.com/kunal047/image/upload/v1703222734/samples/food/fish-vegetables.jpg",
                 ],
@@ -34,10 +40,11 @@ export const categoryByProducts = [
                 name: "Puranpoli",
                 route: "traditional/puranpoli",
                 description: "Stuffed sweet flatbread",
-                price: 300,
+                price: 30,
                 imageUrl: [
                     "https://res.cloudinary.com/kunal047/image/upload/v1703222734/samples/food/fish-vegetables.jpg",
                 ],
+                perItem: true,
                 isAvailable: true,
                 category: "Traditional",
             },
@@ -46,16 +53,20 @@ export const categoryByProducts = [
     {
         id: 2,
         category: "Healthy",
-        description: "lorem ipsum dolor sit amet, consectetur adip",
+        description: "Indulge guilt-free with our wholesome, healthy treats.",
+        imageUrl:
+            "https://res.cloudinary.com/kunal047/image/upload/v1722539036/M-Shop/Hero%20section%20images/hbxjyhwxhlhhxkt01vnv.png",
+        categoryTheme:
+            "bg-gradient-to-r from-green-300 via-green-400 to-green-500",
         products: [
             {
                 id: 4,
                 name: "Dink Ladoo",
                 route: "healthy/dink-ladoo",
                 description: "Ladoo made with edible gum",
-                price: 300,
+                price: 600,
                 imageUrl: [
-                    "https://res.cloudinary.com/kunal047/image/upload/v1703222734/samples/food/fish-vegetables.jpg",
+                    "https://res.cloudinary.com/kunal047/image/upload/v1720203192/M-Shop/4%20Dink%20Ladoo/pg7jrq8jabczlgckkhtv.jpg",
                 ],
                 isAvailable: true,
                 category: "Healthy",
@@ -65,9 +76,10 @@ export const categoryByProducts = [
                 name: "Methi Ladoo",
                 route: "healthy/methi-ladoo",
                 description: "Ladoo made with fenugreek",
-                price: 300,
+                price: 650,
                 imageUrl: [
-                    "https://res.cloudinary.com/kunal047/image/upload/v1703222734/samples/food/fish-vegetables.jpg",
+                    "https://res.cloudinary.com/kunal047/image/upload/v1720203770/M-Shop/5%20Methi%20Ladoo/y8mfqdlurilpao3xzzfc.jpg",
+                    "https://res.cloudinary.com/kunal047/image/upload/v1720203767/M-Shop/5%20Methi%20Ladoo/p0ijqssqkstjxjseh6hg.jpg",
                 ],
                 isAvailable: true,
                 category: "Healthy",
@@ -77,7 +89,7 @@ export const categoryByProducts = [
                 name: "Dry Fruits Ladoo",
                 route: "healthy/dry-fruits-ladoo",
                 description: "Ladoo made with dry fruits",
-                price: 300,
+                price: 850,
                 imageUrl: [
                     "https://res.cloudinary.com/kunal047/image/upload/v1703222734/samples/food/fish-vegetables.jpg",
                 ],
@@ -89,7 +101,7 @@ export const categoryByProducts = [
                 name: "Gulkand Karanji",
                 route: "healthy/gulkand-karanji",
                 description: "Sweet dumpling with rose petal jam",
-                price: 300,
+                price: 420,
                 imageUrl: [
                     "https://res.cloudinary.com/kunal047/image/upload/v1703222734/samples/food/fish-vegetables.jpg",
                 ],
@@ -113,16 +125,22 @@ export const categoryByProducts = [
     {
         id: 3,
         category: "Ladoos",
-        description: "lorem ipsum dolor sit amet, consectetur adip",
+        description:
+            "Experience the joy of festivities with our vibrant, delicious ladoos.",
+        imageUrl:
+            "https://res.cloudinary.com/kunal047/image/upload/v1722539037/M-Shop/Hero%20section%20images/ws3nfiuuacasknnvd0gz.png",
+        categoryTheme:
+            "bg-gradient-to-r from-yellow-300 via-orange-400 to-orange-500",
         products: [
             {
                 id: 9,
                 name: "Besan Ladoo",
                 route: "ladoos/besan-ladoo",
                 description: "Ladoo made with chickpea flour",
-                price: 300,
+                price: 500,
                 imageUrl: [
-                    "https://res.cloudinary.com/kunal047/image/upload/v1703222734/samples/food/fish-vegetables.jpg",
+                    "https://res.cloudinary.com/kunal047/image/upload/v1720203556/M-Shop/9%20Besan%20Ladoo/if3h9mdrfgmtntknlxpc.jpg",
+                    "https://res.cloudinary.com/kunal047/image/upload/v1720203556/M-Shop/9%20Besan%20Ladoo/m0fbhginpv1ike4ubodr.jpg",
                 ],
                 isAvailable: true,
                 category: "Ladoos",
@@ -132,7 +150,7 @@ export const categoryByProducts = [
                 name: "Mugdal Ladoo",
                 route: "ladoos/mugdal-ladoo",
                 description: "Ladoo made with mung beans",
-                price: 300,
+                price: 600,
                 imageUrl: [
                     "https://res.cloudinary.com/kunal047/image/upload/v1703222734/samples/food/fish-vegetables.jpg",
                 ],
@@ -144,9 +162,10 @@ export const categoryByProducts = [
                 name: "Rava Ladoo",
                 route: "ladoos/rava-ladoo",
                 description: "Ladoo made with semolina",
-                price: 300,
+                price: 350,
                 imageUrl: [
-                    "https://res.cloudinary.com/kunal047/image/upload/v1703222734/samples/food/fish-vegetables.jpg",
+                    "https://res.cloudinary.com/kunal047/image/upload/v1720203432/M-Shop/11%20Rava%20Ladoo/ghifmiubzb9xny4dhjij.jpg",
+                    "https://res.cloudinary.com/kunal047/image/upload/v1720203405/M-Shop/11%20Rava%20Ladoo/exlvrwgijwfkxwflb1hh.jpg",
                 ],
                 isAvailable: true,
                 category: "Ladoos",
@@ -180,14 +199,19 @@ export const categoryByProducts = [
     {
         id: 4,
         category: "Special Namkeen",
-        description: "lorem ipsum dolor sit amet, consectetur adip",
+        description:
+            "Spice up your moments with our exquisite, special namkeen.",
+        imageUrl:
+            "https://res.cloudinary.com/kunal047/image/upload/v1722539038/M-Shop/Hero%20section%20images/y18cxeukltqykwx79vws.png",
+        categoryTheme:
+            "bg-gradient-to-r from-orange-500 via-red-400 to-red-600",
         products: [
             {
                 id: 14,
                 name: "Chakli",
                 route: "special-namkeen/chakli",
                 description: "Spiral-shaped crispy snack",
-                price: 300,
+                price: 480,
                 imageUrl: [
                     "https://res.cloudinary.com/kunal047/image/upload/v1703222734/samples/food/fish-vegetables.jpg",
                 ],
@@ -199,7 +223,7 @@ export const categoryByProducts = [
                 name: "Namkeen Shankarpali",
                 route: "special-namkeen/namkeen-shankarpali",
                 description: "Crunchy savory snack",
-                price: 300,
+                price: 480,
                 imageUrl: [
                     "https://res.cloudinary.com/kunal047/image/upload/v1703222734/samples/food/fish-vegetables.jpg",
                 ],
@@ -211,7 +235,7 @@ export const categoryByProducts = [
                 name: "Bhadang (Red)",
                 route: "special-namkeen/bhadang-red",
                 description: "Spicy puffed rice",
-                price: 300,
+                price: 420,
                 imageUrl: [
                     "https://res.cloudinary.com/kunal047/image/upload/v1703222734/samples/food/fish-vegetables.jpg",
                 ],
@@ -223,7 +247,7 @@ export const categoryByProducts = [
                 name: "Bhadang (Yellow)",
                 route: "special-namkeen/bhadang-yellow",
                 description: "Savory puffed rice",
-                price: 300,
+                price: 420,
                 imageUrl: [
                     "https://res.cloudinary.com/kunal047/image/upload/v1703222734/samples/food/fish-vegetables.jpg",
                 ],
@@ -235,7 +259,47 @@ export const categoryByProducts = [
                 name: "Pudachi Karanji",
                 route: "special-namkeen/pudachi-karanji",
                 description: "Fried dumpling with coconut filling",
-                price: 300,
+                price: 600,
+                imageUrl: [
+                    "https://res.cloudinary.com/kunal047/image/upload/v1720203462/M-Shop/18%20Pudachi%20Karanji/fvpscgonkegbpfqrwkwe.jpg",
+                    "https://res.cloudinary.com/kunal047/image/upload/v1720203458/M-Shop/18%20Pudachi%20Karanji/sv7iytagxdth9jhzlsd3.jpg",
+                ],
+                isAvailable: true,
+                category: "Special Namkeen",
+            },
+            {
+                id: 151,
+                name: "Sweet Shankarpali",
+                route: "special-namkeen/sweet-shankarpali",
+                description:
+                    "Enjoy the crispy, savory delight of Sweet Shankarpali.",
+                price: 480,
+                imageUrl: [
+                    "https://res.cloudinary.com/kunal047/image/upload/v1703222734/samples/food/fish-vegetables.jpg",
+                ],
+                isAvailable: true,
+                category: "Special Namkeen",
+            },
+            {
+                id: 152,
+                name: "Anarase",
+                route: "special-namkeen/anarase",
+                description:
+                    "Savor the unique crunch and flavor of traditional Anarase.",
+                price: 550,
+                imageUrl: [
+                    "https://res.cloudinary.com/kunal047/image/upload/v1703222734/samples/food/fish-vegetables.jpg",
+                ],
+                isAvailable: true,
+                category: "Special Namkeen",
+            },
+            {
+                id: 153,
+                name: "Chirote",
+                route: "special-namkeen/chirote",
+                description:
+                    "Delight in the crispy and flavorful treat of Chirote.",
+                price: 480,
                 imageUrl: [
                     "https://res.cloudinary.com/kunal047/image/upload/v1703222734/samples/food/fish-vegetables.jpg",
                 ],
@@ -247,7 +311,11 @@ export const categoryByProducts = [
     {
         id: 5,
         category: "Office Snacking",
-        description: "lorem ipsum dolor sit amet, consectetur adip",
+        description: "Elevate your break time with our perfect office snacks.",
+        imageUrl:
+            "https://res.cloudinary.com/kunal047/image/upload/v1722539036/M-Shop/Hero%20section%20images/wwtaeyaw02k0w695qhvv.png",
+        categoryTheme:
+            "bg-gradient-to-r from-blue-300 via-blue-400 to-blue-500",
         products: [
             {
                 id: 19,

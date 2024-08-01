@@ -2,33 +2,45 @@ import React from "react";
 
 function AboutSection() {
     return (
-        <section className="px-2 py-10 md:px-0">
-            <div className="mx-auto max-w-4xl">
-                <div className=" md:flex md:items-center md:justify-center md:space-x-14">
-                    <div className="relative h-48 w-48 flex-shrink-0">
+        <section className="">
+            <div className="min-h-screen bg-primary p-8">
+                <div className="max-w-4xl mx-auto">
+                    <h2 className="text-3xl font-bold text-gray-800 text-center">
+                        Meet the Heart Behind the Flavors
+                    </h2>
+                    <div className="flex flex-col md:flex-row items-center mt-8">
                         <img
-                            className="relative h-48 w-48 rounded-full object-cover"
-                            src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60"
-                            alt="avatar"
+                            className="w-48 h-48 rounded-full mx-auto shadow-md "
+                            src="https://res.cloudinary.com/kunal047/image/upload/v1721638459/M-Shop/Hero%20section%20images/hidy1ux8jcya3kow1idc.png"
+                            alt="Founder"
                         />
-                    </div>
-
-                    <div className="mt-10 md:mt-0">
-                        <blockquote>
-                            <p className="text-xl text-black">
-                                “Lorem ipsum dolor sit amet consectetur
-                                adipisicing elit. Quibusdam aliquam repellat
-                                laborum minima tempore deserunt explicabo
-                                placeat! Fugit, molestias nesciunt.”
+                        <div className="mt-6 md:mt-0 md:ml-8">
+                            <p className="text-lg text-gray-700">
+                                Hello! I&apos;m{" "}
+                                <span className="font-bold text-accent">
+                                    Mayuri Gaikwad
+                                </span>
+                                , a passionate home cook who loves creating
+                                delicious and wholesome meals. As a housewife,
+                                I&apos;ve spent years perfecting my recipes,
+                                ensuring every dish is made with the finest
+                                ingredients and a lot of love. My goal is to
+                                bring the warmth and comfort of homemade food to
+                                your table, one meal at a time.
                             </p>
-                        </blockquote>
-                        <p className="mt-7 text-lg font-semibold text-black">
-                            John Doe
-                        </p>
-                        <p className="mt-1 text-base text-gray-600">
-                            Frontend Developer at DevUI
-                        </p>
+                        </div>
                     </div>
+                    {/* <h2 className="text-3xl font-bold text-gray-800 text-center mt-12">
+                        Our Philosophy
+                    </h2>
+                    <p className="text-lg text-gray-700 mt-6">
+                        At [Website Name], we believe in the power of
+                        home-cooked meals. Every dish we offer is a testament to
+                        our commitment to quality, taste, and tradition. We
+                        strive to provide you with food that not only satisfies
+                        your hunger but also brings joy and comfort to your
+                        heart.
+                    </p> */}
                 </div>
             </div>
         </section>

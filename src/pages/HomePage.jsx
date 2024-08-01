@@ -1,10 +1,13 @@
 import React from "react";
-import Header from "../components/Header/Header";
-import HeroSection from "../components/HeroSection";
-import FeatureSection from "../components/FeatureSection";
-import CategorySection from "../components/CategorySection";
 
-import CategoryCard from "../components/CategoryCard";
+import {
+    HeroSection,
+    FeatureSection,
+    CategorySection,
+    CategoryCard,
+    MainHeroSection,
+} from "../components/";
+
 import TitleSetter from "../utils/TitleSetter";
 
 function HomePage() {
@@ -12,14 +15,11 @@ function HomePage() {
         <>
             <TitleSetter title={"Home"}>
                 <div className="">
-                    <HeroSection />
+                    <MainHeroSection />
+                    {/* <HeroSection /> */}
                     <FeatureSection />
                     {/* Category section */}
                     <CategorySection />
-                    <div className="flex flex-wrap justify-center">
-                        <CategoryCard />
-                        <CategoryCard />
-                    </div>
                 </div>
             </TitleSetter>
         </>

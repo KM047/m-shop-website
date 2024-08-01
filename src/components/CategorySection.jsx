@@ -7,10 +7,14 @@ import "swiper/css/navigation";
 import CategoryCard from "./CategoryCard";
 
 import { categoryByProducts } from "./../constants/Constants";
+import { Link } from "react-router-dom";
 
 function CategorySection() {
     return (
         <>
+            <h1 className=" text-3xl md:text-5xl font-bold uppercase">
+                Our Category
+            </h1>
             <div className=" lg:col-span-5 lg:-mr-8 xl:col-span-6 flex justify-center items-center ">
                 <Swiper
                     effect={"coverflow"}
@@ -38,10 +42,7 @@ function CategorySection() {
                         <>
                             <SwiperSlide key={categoryIdx}>
                                 <div
-                                    className="  relative rounded-lg overflow-hidden border border-gray-200 shadow-md backdrop-blur-md backdrop-filter flex justify-center items-center py-4 bg-no-repeat bg-cover bg-center"
-                                    style={{
-                                        backgroundImage: `url(${`https://res.cloudinary.com/kunal047/image/upload/v1703222734/samples/food/fish-vegetables.jpg`})`,
-                                    }}
+                                    className={`${category.categoryTheme} relative rounded-lg overflow-hidden border border-gray-200 shadow-md backdrop-blur-md backdrop-filter flex justify-center items-center py-4 bg-no-repeat bg-cover bg-center`}
                                 >
                                     <div className="absolute bg-white/50 w-full h-full "></div>
                                     <CategoryCard {...category} />

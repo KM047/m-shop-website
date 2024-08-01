@@ -11,6 +11,7 @@ export default {
                 quaternary: "var(--color-quaternary)",
                 quinary: "var(--color-quinary)",
                 senary: "var(--color-senary)",
+                extra: "var(--color-extra)",
             },
 
             keyframes: {

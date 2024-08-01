@@ -57,8 +57,6 @@ function ProductPage() {
         return [...acc, ...productsWithCategory];
     }, []);
 
-    console.log(allProducts);
-
     const filteredProducts = allProducts.filter((product) => {
         const matchedCategory =
             selectedCategory && selectedCategory.category !== "All"

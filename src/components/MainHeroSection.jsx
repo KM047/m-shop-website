@@ -97,14 +97,7 @@ function MainHeroSection() {
                     ref={h1Ref2}
                     className="text-[12vw] md:text-[120px] uppercase flex justify-center items-center my-2 z-40 mt-2 font-semibold mix-blend-multiply bg-clip-text text-transparent bg-gradient-to-r from-green-400 via-blue-500 to-purple-500"
                 >
-                    of{" "}
-                    <Link to="/products" className="relative">
-                        <div className="bg-accent text-xl md:text-[40px] px-4 md:px-6 py-2 md:py-5 rounded-full mx-2 font-semibold text-quaternary cursor-pointer">
-                            {" "}
-                            Order Now{" "}
-                        </div>{" "}
-                    </Link>
-                    family
+                    of family
                 </h1>
                 <h1
                     ref={h1Ref3}
@@ -113,18 +106,26 @@ function MainHeroSection() {
                     Tradition
                 </h1>
 
-                <div className="hidden lg:block md:w-full">
+                {/* <Link to="/products" className="relative">
+                    <div className="bg-green-300 text-xl md:text-[40px] px-4 md:px-6 py-2 md:py-5 rounded-full mx-2 font-semibold text-quaternary cursor-pointer">
+                        {" "}
+                        Order Now{" "}
+                    </div>{" "}
+                </Link> */}
+
+                <div className="hidden relative lg:block md:w-full">
+                    {/* <p className="absolute text-black  right-1">Founder</p> */}
                     <Link to={"/about"}>
                         <img
                             ref={(el) => (imgRefs.current[3] = el)}
                             src="https://res.cloudinary.com/kunal047/image/upload/v1721638459/M-Shop/Hero%20section%20images/hidy1ux8jcya3kow1idc.png"
-                            alt=""
+                            alt="about"
                             className="absolute h-24 md:h-[200px] bottom-4 md:bottom-[5%] right-2 md:right-[0%] rounded-[30px] mix-blend-multiply"
                         />
                     </Link>
                 </div>
 
-                <h5 className="absolute bottom-10 md:bottom-[0%] left-[50%] transform -translate-x-[50%] text-xl md:text-[25px]">
+                <h5 className="absolute bottom-10 md:bottom-[0%] left-[50%] transform -translate-x-[50%] text-xl md:text-[25px] text-green-300">
                     Scroll Down ↓
                 </h5>
             </div>

@@ -1,13 +1,9 @@
-import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import {
-    removeFromCart,
-    resetCart,
-    updateQuantity,
-} from "../redux/reducers/CartSlice";
+import { removeFromCart, updateQuantity } from "../redux/reducers/CartSlice";
 import { Link } from "react-router-dom";
 
 import emptyCart from "../assets/empty-cart.png";
+import ContactSection from "./ContactSection";
 
 function CartItem() {
     const { cartItems, totalQuantity, totalPrice } = useSelector(
@@ -36,19 +32,20 @@ function CartItem() {
                 <h1 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
                     Shopping Cart
                 </h1>
-                <div className="mt-12 lg:grid lg:grid-cols-12 lg:items-start lg:gap-x-12 xl:gap-x-16">
+                <div className="mt-12 lg:grid lg:grid-cols-12 lg:items-start lg:gap-x-12 xl:gap-x-16 flex flex-col h-full">
                     <section
                         aria-labelledby="cart-heading"
-                        className="rounded-lg bg-primary lg:col-span-8"
+                        className="rounded-lg bg-primary lg:col-span-8 flex flex-col h-full"
                     >
                         <h2 id="cart-heading" className="sr-only text-black">
                             Items in your shopping cart
                         </h2>
-                        {cartItems.length != 0 ? (
+                        {cartItems.length !== 0 ? (
                             <>
                                 <ul
                                     role="list"
-                                    className="divide-y divide-gray-200"
+                                    className="divide-y divide-gray-200 flex-1 overflow-y-scroll scroll-m-1 p-4"
+                                    style={{ maxHeight: "400px" }} // Set max-height as needed
                                 >
                                     {cartItems.map((product, productIdx) => (
                                         <div
@@ -108,8 +105,7 @@ function CartItem() {
                                                                     }
                                                                 </p>
                                                                 <p className="text-sm font-medium text-gray-900">
-                                                                    &nbsp;&nbsp;
-                                                                    ₹{" "}
+                                                                    &nbsp;&nbsp;₹{" "}
                                                                     {
                                                                         product.price
                                                                     }
@@ -129,7 +125,7 @@ function CartItem() {
                                                         onClick={() =>
                                                             handleUpdateQuantity(
                                                                 product.id,
-                                                                product.quantity ==
+                                                                product.quantity ===
                                                                     0
                                                                     ? 0
                                                                     : product.quantity -
@@ -144,7 +140,6 @@ function CartItem() {
                                                     <input
                                                         type="text"
                                                         className="mx-1 h-7 w-9 rounded-md border text-center"
-                                                        defaultValue={1}
                                                         value={product.quantity}
                                                     />
                                                     <button
@@ -277,6 +272,8 @@ function CartItem() {
                     </section>
                 </div>
             </div>
+            <hr className="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700" />
+            <ContactSection />
         </div>
     );
 }

@@ -1,4 +1,5 @@
 import React from "react";
+import ContactSection from "./ContactSection";
 
 function AboutSection() {
     return (
@@ -30,17 +31,7 @@ function AboutSection() {
                             </p>
                         </div>
                     </div>
-                    {/* <h2 className="text-3xl font-bold text-gray-800 text-center mt-12">
-                        Our Philosophy
-                    </h2>
-                    <p className="text-lg text-gray-700 mt-6">
-                        At [Website Name], we believe in the power of
-                        home-cooked meals. Every dish we offer is a testament to
-                        our commitment to quality, taste, and tradition. We
-                        strive to provide you with food that not only satisfies
-                        your hunger but also brings joy and comfort to your
-                        heart.
-                    </p> */}
+                    <ContactSection />
                 </div>
             </div>
         </section>

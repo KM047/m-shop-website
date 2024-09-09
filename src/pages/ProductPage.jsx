@@ -15,7 +15,7 @@ import {
     FunnelIcon,
 } from "@heroicons/react/20/solid";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { Link } from "react-router-dom";
 import { categoryByProducts } from "./../constants/Constants";
@@ -69,6 +69,11 @@ function ProductPage() {
 
         return matchedCategory && matchedProductSearch;
     });
+
+    useEffect(() => {
+        // Scroll to the top of the page when this component is rendered
+        window.scrollTo(0, 0);
+    }, []);
 
     return (
         <div className="bg-primary ">
@@ -348,62 +353,65 @@ function ProductPage() {
                 </div>
 
                 <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
-                    {filteredProducts.map((product, key) => (
-                        <div
-                            key={key}
-                            id={product.id}
-                            className="group relative"
-                        >
-                            <Link
-                                to={`/products/${product.category.toLowerCase()}/${window.btoa(
-                                    product.id
-                                )}`}
-                                key={key}
-                            >
-                                <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-senary lg:aspect-none group-hover:opacity-75 lg:h-80">
-                                    {product.id % 2 == 0 ? (
-                                        <div className="absolute right-2 top-2">
-                                            <span className="inline-flex items-center rounded-md bg-senary px-2 py-1 text-xs font-medium text-yellow-800 ring-1 ring-inset ring-yellow-600/20 ">
-                                                Our Best
-                                            </span>
+                    {filteredProducts.map(
+                        (product, key) =>
+                            product.isAvailable && (
+                                <div
+                                    key={key}
+                                    id={product.id}
+                                    className="group relative"
+                                >
+                                    <Link
+                                        to={`/products/${product.category.toLowerCase()}/${window.btoa(
+                                            product.id
+                                        )}`}
+                                        key={key}
+                                    >
+                                        <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-senary lg:aspect-none group-hover:opacity-75 lg:h-80">
+                                            {key % 2 == 0 ? (
+                                                <div className="absolute right-2 top-2">
+                                                    <span className="inline-flex items-center rounded-md bg-senary px-2 py-1 text-xs font-medium text-yellow-800 ring-1 ring-inset ring-yellow-600/20 ">
+                                                        Our Best
+                                                    </span>
+                                                </div>
+                                            ) : null}
+                                            <img
+                                                src={product.imageUrl[0]}
+                                                alt={product.name}
+                                                className="h-full w-full object-cover object-center lg:h-full lg:w-full  transition-transform ease-linear group-hover:scale-105  "
+                                            />
                                         </div>
-                                    ) : null}
-                                    <img
-                                        src={product.imageUrl[0]}
-                                        alt={product.name}
-                                        className="h-full w-full object-cover object-center lg:h-full lg:w-full  transition-transform ease-linear group-hover:scale-105  "
-                                    />
-                                </div>
-                                <div className="mt-4 flex justify-between">
-                                    <div>
-                                        <h3 className="text-base font-semibold text-quaternary">
+                                        <div className="mt-4 flex justify-between">
                                             <div>
-                                                <span
-                                                    aria-hidden="true"
-                                                    className="absolute inset-8 group-hover:text-red-300"
-                                                />
-                                                {product.name}
+                                                <h3 className="text-base font-semibold text-quaternary">
+                                                    <div>
+                                                        <span
+                                                            aria-hidden="true"
+                                                            className="absolute inset-8 group-hover:text-red-300"
+                                                        />
+                                                        {product.name}
+                                                    </div>
+                                                </h3>
+                                                <p className="mt-1 text-sm font-medium text-quinary">
+                                                    {product.category}
+                                                </p>
                                             </div>
-                                        </h3>
-                                        <p className="mt-1 text-sm font-medium text-quinary">
-                                            {product.category}
-                                        </p>
-                                    </div>
-                                    <p className="text-xl font-semibold text-gray-900 ">
-                                        ₹ {product.price}
-                                    </p>
-                                </div>
-                            </Link>
+                                            <p className="text-xl font-semibold text-gray-900 ">
+                                                ₹ {product.price}
+                                            </p>
+                                        </div>
+                                    </Link>
 
-                            <button
-                                onClick={() => handleAddToCart(product)}
-                                type="button"
-                                className="mt-4 w-full rounded-md bg-accent px-2 py-1.5 text-sm font-bold text-primary shadow-sm hover:bg-purple-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-600"
-                            >
-                                Add to Cart
-                            </button>
-                        </div>
-                    ))}
+                                    <button
+                                        onClick={() => handleAddToCart(product)}
+                                        type="button"
+                                        className="mt-4 w-full rounded-md bg-accent px-2 py-1.5 text-sm font-bold text-primary shadow-sm hover:bg-purple-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-600"
+                                    >
+                                        Add to Cart
+                                    </button>
+                                </div>
+                            )
+                    )}
                 </div>
             </div>
         </div>

@@ -116,28 +116,27 @@ function Header() {
                                             <div className="w-screen max-w-sm flex-auto overflow-hidden rounded-3xl bg-primary text-sm leading-6 shadow-lg ring-1 ring-accent">
                                                 <div className="p-4">
                                                     {item.products.map(
-                                                        (product) => (
-                                                            <div
-                                                                key={
-                                                                    product.name
-                                                                }
-                                                                className="group relative flex gap-x-6 rounded-lg p-4 hover:bg-accent bg-blend-screen transition ease-linear "
-                                                            >
-                                                                <div>
-                                                                    <Link
-                                                                        to={`/products/${item.category.toLowerCase()}/${window.btoa(
-                                                                            product.id
-                                                                        )}`}
-                                                                        className="font-semibold text-gray-900"
-                                                                    >
-                                                                        {
-                                                                            product.name
-                                                                        }
-                                                                        <span className="absolute inset-0" />
-                                                                    </Link>
+                                                        (product, idx) =>
+                                                            product.isAvailable && (
+                                                                <div
+                                                                    key={idx}
+                                                                    className="group relative flex gap-x-6 rounded-lg p-4 hover:bg-accent bg-blend-screen transition ease-linear "
+                                                                >
+                                                                    <div>
+                                                                        <Link
+                                                                            to={`/products/${item.category.toLowerCase()}/${window.btoa(
+                                                                                product.id
+                                                                            )}`}
+                                                                            className="font-semibold text-gray-900"
+                                                                        >
+                                                                            {
+                                                                                product.name
+                                                                            }
+                                                                            <span className="absolute inset-0" />
+                                                                        </Link>
+                                                                    </div>
                                                                 </div>
-                                                            </div>
-                                                        )
+                                                            )
                                                     )}
                                                 </div>
                                             </div>
@@ -207,10 +206,10 @@ function Header() {
                         <div className="mt-6 flow-root">
                             <div className="-my-6 divide-y divide-quinary">
                                 <div>
-                                    {navItems.map((item) => (
+                                    {navItems.map((item, idx) => (
                                         <Disclosure
                                             as="div"
-                                            key={item.id}
+                                            key={idx}
                                             className="border-b border-senary py-6"
                                         >
                                             {({ open }) => (
@@ -241,39 +240,40 @@ function Header() {
                                                                 (
                                                                     product,
                                                                     productIdx
-                                                                ) => (
-                                                                    <div
-                                                                        key={
-                                                                            productIdx
-                                                                        }
-                                                                        className="group relative flex gap-x-6 rounded-lg p-4 hover:bg-accent animate-slideIn"
-                                                                        style={{
-                                                                            animationDelay: `${
-                                                                                productIdx *
-                                                                                0.1
-                                                                            }s`,
-                                                                        }}
-                                                                    >
-                                                                        <div className="">
-                                                                            <Link
-                                                                                to={`/products/${item.category.toLowerCase()}/${window.btoa(
-                                                                                    product.id
-                                                                                )}`}
-                                                                                className="font-medium text-quaternary"
-                                                                                onClick={() =>
-                                                                                    setMobileMenuOpen(
-                                                                                        false
-                                                                                    )
-                                                                                }
-                                                                            >
-                                                                                {
-                                                                                    product.name
-                                                                                }
-                                                                                <span className="absolute inset-0" />
-                                                                            </Link>
+                                                                ) =>
+                                                                    product.isAvailable && (
+                                                                        <div
+                                                                            key={
+                                                                                productIdx
+                                                                            }
+                                                                            className="group relative flex gap-x-6 rounded-lg p-4 hover:bg-accent animate-slideIn"
+                                                                            style={{
+                                                                                animationDelay: `${
+                                                                                    productIdx *
+                                                                                    0.1
+                                                                                }s`,
+                                                                            }}
+                                                                        >
+                                                                            <div className="">
+                                                                                <Link
+                                                                                    to={`/products/${item.category.toLowerCase()}/${window.btoa(
+                                                                                        product.id
+                                                                                    )}`}
+                                                                                    className="font-medium text-quaternary"
+                                                                                    onClick={() =>
+                                                                                        setMobileMenuOpen(
+                                                                                            false
+                                                                                        )
+                                                                                    }
+                                                                                >
+                                                                                    {
+                                                                                        product.name
+                                                                                    }
+                                                                                    <span className="absolute inset-0" />
+                                                                                </Link>
+                                                                            </div>
                                                                         </div>
-                                                                    </div>
-                                                                )
+                                                                    )
                                                             )}
                                                         </div>
                                                     </DisclosurePanel>

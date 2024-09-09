@@ -1,5 +1,3 @@
-import React, { useState } from "react";
-
 function ProductCard(product, key, handleAddToCart = () => {}) {
     return (
         <>
@@ -14,7 +12,7 @@ function ProductCard(product, key, handleAddToCart = () => {}) {
                     ) : null}
                     <img
                         src={product.imageUrl}
-                        alt={product.imageAlt}
+                        alt={product.name}
                         className="h-full w-full object-cover object-center lg:h-full lg:w-full"
                     />
                 </div>

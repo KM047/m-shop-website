@@ -8,9 +8,9 @@ import HeroSection from "./HeroSection";
 import Loader from "./Loader";
 import Notification from "./Notification";
 import ProductCard from "./ProductCard";
-import { ProductInfo } from "./ProductInfo";
 import CategorySection from "./CategorySection";
 import MainHeroSection from "./MainHeroSection";
+import ContactSection from "./ContactSection";
 
 export {
     Header,
@@ -25,4 +25,5 @@ export {
     ProductCard,
     CategorySection,
     MainHeroSection,
+    ContactSection,
 };

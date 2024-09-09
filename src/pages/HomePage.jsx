@@ -9,15 +9,18 @@ import {
 } from "../components/";
 
 import TitleSetter from "../utils/TitleSetter";
+import BestProductSection from "../components/BestProductSection";
 
 function HomePage() {
     return (
         <>
             <TitleSetter title={"Home"}>
                 <div className="">
-                    <MainHeroSection />
                     {/* <HeroSection /> */}
+                    <MainHeroSection />
                     <FeatureSection />
+                    {/* Best Product section */}
+                    <BestProductSection />
                     {/* Category section */}
                     <CategorySection />
                 </div>

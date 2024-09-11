@@ -11,7 +11,6 @@ function BestProductSection() {
     const allProducts = categoryByProducts.reduce((acc, category) => {
         const productsWithCategory = category.products.map((product) => ({
             ...product,
-            category: category.category,
         }));
         return [...acc, ...productsWithCategory];
     }, []);

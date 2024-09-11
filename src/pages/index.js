@@ -4,6 +4,7 @@ import NotFoundPage from "./NotFoundPage.jsx";
 import ProductPage from "./ProductPage.jsx";
 import ProductOverviewPage from "./ProductOverviewPage.jsx";
 import AboutPage from "./AboutPage.jsx";
+import CategoryPage from "./CategoryPage";
 
 export {
     HomePage,
@@ -12,4 +13,5 @@ export {
     ProductPage,
     ProductOverviewPage,
     AboutPage,
+    CategoryPage,
 };

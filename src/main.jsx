@@ -16,6 +16,7 @@ import {
     ProductPage,
     ProductOverviewPage,
     AboutPage,
+    CategoryPage,
 } from "./pages/index.js";
 
 const router = createBrowserRouter([
@@ -44,6 +45,10 @@ const router = createBrowserRouter([
             {
                 path: "/about",
                 element: <AboutPage />,
+            },
+            {
+                path: "/category/:category",
+                element: <CategoryPage />,
             },
         ],
     },

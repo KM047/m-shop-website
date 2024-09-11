@@ -200,7 +200,7 @@ function CartItem() {
                                     <img
                                         src={emptyCart}
                                         alt="empty cart"
-                                        className="w-1/2 h-1/2"
+                                        className="w-60 object-cover object-center"
                                     />
                                 </div>
                                 <h2 className="text-xl font-medium">

@@ -22,7 +22,9 @@ function CategoryCard(category) {
                         </p>
                     </div>
                     <div className="p-6 pt-0">
-                        <Link to={"/products"}>
+                        <Link
+                            to={`/category/${window.btoa(category.category)}`}
+                        >
                             <button
                                 data-ripple-light="true"
                                 type="button"

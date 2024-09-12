@@ -30,6 +30,7 @@ function CategoryPage() {
         const categoryAndProducts = fetchProductsByCategory(category);
 
         setProductsByCategory(categoryAndProducts);
+        window.scrollTo(0, 0);
     }, []);
 
     return (
